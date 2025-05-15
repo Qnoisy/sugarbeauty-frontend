@@ -1,0 +1,172 @@
+@use 'variables' as *;
+
+// Центрирование
+@mixin flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+// Текст
+@mixin text-color($color-var, $transition-time: 200ms, $text-shadow: none) {
+	color: var($color-var);
+	transition: color $transition-time linear;
+	text-shadow: $text-shadow;
+
+	* {
+		color: var($color-var);
+	}
+}
+
+@mixin text-base {
+	@include text-color(--text-color);
+}
+@mixin text-secondary {
+	@include text-color(--text-color-second);
+}
+@mixin text-special {
+	@include text-color(--text-color-special);
+}
+@mixin text-universal {
+	@include text-color(--universal-text-color);
+}
+
+@mixin text-hover($color: var(--text-color-hover)) {
+	transition: color 0.3s ease;
+	@media (hover: hover) {
+		&:hover {
+			@include text-color($color);
+		}
+	}
+	@media (hover: none) {
+		&:active {
+			@include text-color($color);
+		}
+	}
+}
+
+// Фон
+@mixin background-color($background-var, $text-color-var: --text-color) {
+	background-color: var($background-var);
+	transition: background-color 200ms linear;
+	@include text-color($text-color-var);
+}
+@mixin background-base {
+	@include background-color(--background-color);
+}
+@mixin background-secondary {
+	@include background-color(--second-background-color, --text-color-second);
+}
+
+// Кнопки и бордеры
+@mixin border(
+	$radius: $radius-default,
+	$size: 1px,
+	$color: var(--border-color)
+) {
+	border-radius: $radius;
+	border: $size solid $color;
+	@include transition(border-color);
+}
+@mixin button-style {
+	@include border;
+	background-color: var(--button-background-color);
+	padding: 0.75rem;
+	font-size: 1rem;
+	transition: background-color 0.3s ease, color 0.3s ease;
+
+	@media (hover: hover) {
+		&:hover {
+			@include text-color(--button-text-color-hover, 0.3s);
+			background-color: var(--button-background-color-hover);
+		}
+	}
+	@media (hover: none) {
+		&:focus {
+			@include text-color(--button-text-color-hover, 0.3s);
+			background-color: var(--button-background-color-hover);
+		}
+	}
+}
+
+// Анимации
+@mixin animated-gradient {
+	background-size: 400% 400%;
+	animation: GradientAnimation 8s ease infinite;
+}
+@keyframes GradientAnimation {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+@mixin gradient-top {
+	background-image: var(--gradient-background-top);
+	@include animated-gradient;
+}
+@mixin gradient-bottom {
+	background-image: var(--gradient-background-bottom);
+	@include animated-gradient;
+}
+
+// Прочее
+@mixin transition($property: all, $duration: 300ms, $timing-function: ease) {
+	transition: $property $duration $timing-function;
+}
+
+@mixin neumorphism(
+	$light-color: rgba(255, 255, 255, 0.5),
+	$dark-color: rgba(0, 0, 0, 0.2),
+	$inset: false
+) {
+	box-shadow: #{$inset and 'inset '} -5px -5px 10px #{$light-color},
+		#{$inset and 'inset '} 5px 5px 10px #{$dark-color};
+}
+
+@mixin glass-background {
+	background: rgba(255, 255, 255, 0.2);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+
+	box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.15),
+		-8px -8px 15px rgba(255, 255, 255, 0.15),
+		inset 5px 5px 10px rgba(0, 0, 0, 0.05),
+		inset -5px -5px 10px rgba(255, 255, 255, 0.05);
+}
+
+@mixin flex-gap($gap: 1rem, $direction: row, $align: left, $justify: center) {
+	display: flex;
+	flex-direction: $direction;
+	gap: $gap;
+	align-items: $align;
+	justify-content: $justify;
+}
+
+@mixin box-shadow(
+	$x: 0,
+	$y: 2px,
+	$blur: 8px,
+	$spread: 0,
+	$color: rgba(0, 0, 0, 0.2)
+) {
+	box-shadow: $x $y $blur $spread $color;
+}
+
+@mixin no-select {
+	& {
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+}
+@mixin no-highlight {
+	& {
+		-webkit-tap-highlight-color: transparent;
+	}
+}
