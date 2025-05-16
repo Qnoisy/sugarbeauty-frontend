@@ -2,7 +2,8 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { Bounce, ToastContainer } from 'react-toastify';
-import App from './App.tsx';
+
+import { Wrapper } from './Wrapper';
 import './common/general.scss';
 
 createRoot(document.getElementById('root')!).render(
@@ -21,7 +22,7 @@ createRoot(document.getElementById('root')!).render(
 				theme='light'
 				transition={Bounce}
 			/>
-			<App />
+			<Wrapper />
 		</BrowserRouter>
 	</StrictMode>
 );
