@@ -3,7 +3,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import auth from '../firebase/firebase';
 
-export const CheckCourseAccess = () => {
+const CheckCourseAccess = () => {
 	const [access, setAccess] = useState<boolean | null>(null);
 	const [loading, setLoading] = useState<boolean>(true);
 	const [error, setError] = useState<string | null>(null);
@@ -55,3 +55,4 @@ export const CheckCourseAccess = () => {
 		</div>
 	);
 };
+export default CheckCourseAccess;

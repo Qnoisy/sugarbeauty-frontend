@@ -1,6 +1,6 @@
 // src/pages/Success.tsx
 
-export const Success = () => {
+const Success = () => {
 	return (
 		<div>
 			<h1>Payment successful!</h1>
@@ -8,3 +8,4 @@ export const Success = () => {
 		</div>
 	);
 };
+export default Success;

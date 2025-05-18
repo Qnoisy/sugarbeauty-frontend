@@ -1,6 +1,6 @@
 // src/pages/Cancel.tsx
 
-export const Cancel = () => {
+const Cancel = () => {
 	return (
 		<div>
 			<h1>Payment cancelled</h1>
@@ -8,3 +8,4 @@ export const Cancel = () => {
 		</div>
 	);
 };
+export default Cancel;

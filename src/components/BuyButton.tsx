@@ -8,7 +8,7 @@ const stripePromise = loadStripe(
 	import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY! || ''
 );
 
-export const BuyButton = () => {
+const BuyButton = () => {
 	const [user, setUser] = useState<any>(null);
 	const [loading, setLoading] = useState<boolean>(true);
 	const [error, setError] = useState<string | null>(null);
@@ -96,3 +96,4 @@ export const BuyButton = () => {
 		</div>
 	);
 };
+export default BuyButton;
