@@ -51,7 +51,7 @@ export const Wrapper = () => {
 				{publicRoutes.map((route, index) => (
 					<Route key={index} path={route.path} element={<route.component />} />
 				))}
-				<Route path='/updateWriteImage/:id' element={<UpdateWriteImage />} />
+				<Route path='/updateWriteImage/:id' element={<UpdateWriteImage />} />{' '}
 				<Route path='/admin' element={<AdminRoute />}>
 					<Route index element={<AdminPanel />} />
 				</Route>

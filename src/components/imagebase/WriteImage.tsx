@@ -46,15 +46,13 @@ const WriteImage: React.FC = () => {
 				return;
 			}
 
-			const imageUrl = await uploadImage(values.imageFile);
+			const imageUrl = await uploadImage(values.imageFile); // <== ключевой шаг!
 			if (!imageUrl) return;
 
 			const newDocRef = push(ref(db, 'list/images'));
-			await set(newDocRef, { imageId: newDocRef.key, imageUrl });
+			await set(newDocRef, { imageId: newDocRef.key, imageUrl }); // <== сюда должна уйти ссылка
 
 			toast.success('Image uploaded successfully');
-
-			// 🔥 Очищаем поле загрузки после отправки
 			setFieldValue('imageFile', null);
 			resetForm();
 		} catch (error: any) {
