@@ -1,10 +1,11 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import useAdminCheck from '../../../hooks/useAdminCheck';
+import useAdminCheckFromServer from '../../../hooks/useAdminCheckFromServer';
 
 const AdminRoute = () => {
-	const isAdmin = useAdminCheck();
+	const { isAdmin, loading } = useAdminCheckFromServer();
 
-	if (isAdmin === null) return <p>Загрузка...</p>;
+	if (loading) return <p>Загрузка...</p>;
+
 	return isAdmin ? <Outlet /> : <Navigate to='/' replace />;
 };
 

@@ -1,7 +1,7 @@
-import useAdminCheck from '../../../hooks/useAdminCheck';
+import useAdminCheckFromServer from '../../../hooks/useAdminCheckFromServer';
 
 const AdminPanel = () => {
-	const isAdmin = useAdminCheck();
+	const isAdmin = useAdminCheckFromServer();
 
 	return (
 		<div>
