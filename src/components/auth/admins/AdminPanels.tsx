@@ -1,12 +1,13 @@
-import useAdminCheckFromServer from '../../../hooks/useAdminCheckFromServer';
+import React from 'react';
+import UpdateImage from '../../imagebase/UpdateImage';
+import WriteImage from '../../imagebase/WriteImage';
 
-const AdminPanel = () => {
-	const isAdmin = useAdminCheckFromServer();
-
+const AdminPanel: React.FC = () => {
 	return (
-		<div>
-			<h2>Панель администратора</h2>
-			{isAdmin === null ? <p>Загрузка...</p> : <p>✅ Вы администратор</p>}
+		<div className='container'>
+			<h2>🛠 Admin Panel</h2>
+			<WriteImage />
+			<UpdateImage />
 		</div>
 	);
 };

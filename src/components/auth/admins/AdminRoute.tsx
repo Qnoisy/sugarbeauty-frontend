@@ -5,7 +5,6 @@ const AdminRoute = () => {
 	const { isAdmin, loading } = useAdminCheckFromServer();
 
 	if (loading) return <p>Загрузка...</p>;
-
 	return isAdmin ? <Outlet /> : <Navigate to='/' replace />;
 };
 

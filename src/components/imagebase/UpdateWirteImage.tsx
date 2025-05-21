@@ -12,6 +12,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { app } from '../../firebase/firebase';
 import CustomFileInput from '../UI/CustomFileInput';
+const convertUrlToPath = (url: string): string | null => {
+	const match = url.match(/\/o\/(.+)\?alt=media/);
+	return match ? decodeURIComponent(match[1]) : null;
+};
 
 const UpdateWriteImage: React.FC = () => {
 	const { id } = useParams();
@@ -23,7 +27,7 @@ const UpdateWriteImage: React.FC = () => {
 
 		const fetchImage = async () => {
 			const db = getDatabase(app);
-			const dbRef = ref(db, `images/${id}`);
+			const dbRef = ref(db, `list/images/${id}`);
 
 			try {
 				const snapshot = await get(dbRef);
@@ -44,7 +48,11 @@ const UpdateWriteImage: React.FC = () => {
 	const uploadImage = async (file: File): Promise<string | null> => {
 		try {
 			const storage = getStorage(app);
-			const fileRef = storageRef(storage, `images/${file.name}`);
+			const fileRef = storageRef(
+				storage,
+				`list/images/${Date.now()}-${file.name}`
+			);
+
 			await uploadBytes(fileRef, file);
 			return await getDownloadURL(fileRef);
 		} catch (error) {
@@ -68,10 +76,12 @@ const UpdateWriteImage: React.FC = () => {
 		const dbRef = ref(db, `list/images/${id}`);
 
 		try {
-			// Удаляем старое изображение
 			if (currentImage) {
-				const oldImageRef = storageRef(storage, currentImage);
-				await deleteObject(oldImageRef);
+				const storagePath = convertUrlToPath(currentImage);
+				if (storagePath) {
+					const oldImageRef = storageRef(storage, storagePath);
+					await deleteObject(oldImageRef);
+				}
 			}
 
 			// Загружаем новое изображение
@@ -82,7 +92,7 @@ const UpdateWriteImage: React.FC = () => {
 			await set(dbRef, { imageId: id, imageUrl });
 
 			toast.success('Image updated successfully');
-			navigate('/updateImage');
+			navigate('/admin');
 		} catch (error: any) {
 			console.error('Error updating image:', error);
 			toast.error(error.message);

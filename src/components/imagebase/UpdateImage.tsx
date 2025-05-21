@@ -64,7 +64,7 @@ const UpdateImage: React.FC = () => {
 					<li key={image.imageId}>
 						<img src={image.imageUrl} alt='Uploaded' width='150' />
 						<button
-							onClick={() => navigate(`/updateWriteImage/${image.imageId}`)}
+							onClick={() => navigate(`/admin/update-image/${image.imageId}`)}
 						>
 							Replace
 						</button>

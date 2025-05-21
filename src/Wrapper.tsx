@@ -9,9 +9,7 @@ import BuyButton from './components/BuyButton';
 import Cancel from './components/Cancel';
 import CheckCourseAccess from './components/CheckCourseAccess';
 import ReadImage from './components/imagebase/ReadImage';
-import UpdateImage from './components/imagebase/UpdateImage';
 import UpdateWriteImage from './components/imagebase/UpdateWirteImage';
-import WriteImage from './components/imagebase/WriteImage';
 import Main from './components/Main';
 import Success from './components/Success';
 
@@ -27,9 +25,7 @@ const publicRoutes: RouteInterface[] = [
 	{ path: '/signIn', component: SignIn },
 	{ path: '/signUp', component: SignUp },
 	{ path: '/profile', component: Profile },
-	{ path: '/writeImage', component: WriteImage },
 	{ path: '/readImage', component: ReadImage },
-	{ path: '/updateImage', component: UpdateImage },
 ];
 export const Wrapper = () => {
 	const navigate = useNavigate();
@@ -51,10 +47,11 @@ export const Wrapper = () => {
 				{publicRoutes.map((route, index) => (
 					<Route key={index} path={route.path} element={<route.component />} />
 				))}
-				<Route path='/updateWriteImage/:id' element={<UpdateWriteImage />} />{' '}
 				<Route path='/admin' element={<AdminRoute />}>
-					<Route index element={<AdminPanel />} />
+					<Route index element={<AdminPanel />} /> {/* Это основная панель */}
+					<Route path='update-image/:id' element={<UpdateWriteImage />} />
 				</Route>
+
 				<Route path='/success' element={<Success />} />
 				<Route path='/cancel' element={<Cancel />} />
 			</Routes>
