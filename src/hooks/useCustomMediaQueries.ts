@@ -1,18 +1,17 @@
+// hooks/useCustomMediaQueries.ts
 import useMediaQuery from './useMediaQuery';
 
 const useCustomMediaQueries = () => {
-	const isSmallScreen = useMediaQuery('(min-width: 399.98px)');
-	const isMediumScreen = useMediaQuery('(min-width: 575.98px)');
-	const isLargeScreen = useMediaQuery('(min-width: 767.98px)');
-	const isXLargeScreen = useMediaQuery('(min-width: 991.98px)');
-	const isXXLargeScreen = useMediaQuery('(min-width: 1199.98px)');
+	const isMobile = useMediaQuery('(max-width: 575.98px)');
+	const isTablet = useMediaQuery(
+		'(min-width: 576px) and (max-width: 991.98px)'
+	);
+	const isDesktop = useMediaQuery('(min-width: 992px)');
 
 	return {
-		isSmallScreen,
-		isMediumScreen,
-		isLargeScreen,
-		isXLargeScreen,
-		isXXLargeScreen,
+		isMobile,
+		isTablet,
+		isDesktop,
 	};
 };
 

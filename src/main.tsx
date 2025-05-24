@@ -3,8 +3,8 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { Bounce, ToastContainer } from 'react-toastify';
 
-import { Wrapper } from './Wrapper';
 import './common/general.scss';
+import Wrapper from './Wrapper';
 
 createRoot(document.getElementById('root')!).render(
 	<StrictMode>
