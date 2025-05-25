@@ -1,21 +1,24 @@
 @use '../../common/mixins' as *;
+
 .header {
 	position: fixed;
 	width: 100%;
 	left: 0;
 	top: 0;
 	z-index: 1;
+
 	&::before {
 		content: '';
 		position: absolute;
 		top: 0;
 		left: 0;
 		right: 0;
-		height: 100%; /* Покрытие всей высоты хедера */
+		height: 100%;
 		background: rgba(0, 0, 0, 0.6);
-		z-index: -1; /* Помещаем градиент позади основного контента */
+		z-index: -1;
 	}
 }
+
 .customNav__style {
 	flex-direction: column;
 	text-align: center;
@@ -24,10 +27,12 @@
 .header__row {
 	display: flex;
 	justify-content: space-between;
+
 	@media (min-width: 575.98px) {
 		padding: 1rem 0;
 	}
 }
+
 .header__logo {
 	@include flex-center;
 	gap: 2rem;

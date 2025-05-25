@@ -12,10 +12,6 @@
 	color: var($color-var);
 	transition: color $transition-time linear;
 	text-shadow: $text-shadow;
-
-	& * {
-		color: var($color-var);
-	}
 }
 
 @mixin text-base {
@@ -34,16 +30,14 @@
 @mixin text-hover($color: var(--text-color-hover)) {
 	transition: color 0.3s ease;
 
-	& {
-		@media (hover: hover) {
-			&:hover {
-				@include text-color($color);
-			}
+	@media (hover: hover) {
+		&:hover {
+			@include text-color($color);
 		}
-		@media (hover: none) {
-			&:active {
-				@include text-color($color);
-			}
+	}
+	@media (hover: none) {
+		&:active {
+			@include text-color($color);
 		}
 	}
 }
@@ -52,7 +46,6 @@
 @mixin background-color($background-var, $text-color-var: --text-color) {
 	background-color: var($background-var);
 	transition: background-color 200ms linear;
-
 	@include text-color($text-color-var);
 }
 
@@ -81,18 +74,16 @@
 	font-size: 1rem;
 	transition: background-color 0.3s ease, color 0.3s ease;
 
-	& {
-		@media (hover: hover) {
-			&:hover {
-				@include text-color(--button-text-color-hover, 0.3s);
-				background-color: var(--button-background-color-hover);
-			}
+	@media (hover: hover) {
+		&:hover {
+			@include text-color(--button-text-color-hover, 0.3s);
+			background-color: var(--button-background-color-hover);
 		}
-		@media (hover: none) {
-			&:focus {
-				@include text-color(--button-text-color-hover, 0.3s);
-				background-color: var(--button-background-color-hover);
-			}
+	}
+	@media (hover: none) {
+		&:focus {
+			@include text-color(--button-text-color-hover, 0.3s);
+			background-color: var(--button-background-color-hover);
 		}
 	}
 }
@@ -119,6 +110,7 @@
 	background-image: var(--gradient-background-top);
 	@include animated-gradient;
 }
+
 @mixin gradient-bottom {
 	background-image: var(--gradient-background-bottom);
 	@include animated-gradient;

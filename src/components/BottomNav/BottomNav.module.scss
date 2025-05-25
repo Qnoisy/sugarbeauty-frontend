@@ -1,4 +1,4 @@
-@use '../../../common/mixins' as *;
+@use '../../common/mixins' as *;
 
 .bottomNav {
 	@include background-secondary;
@@ -7,7 +7,7 @@
 	left: 0;
 	width: 100%;
 	box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-	z-index: 1050; // Увеличен для гарантии видимости над модальными окнами
+	z-index: 1050;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -38,10 +38,10 @@
 }
 
 .navBurgerBottom {
-	width: 80px;
-	height: 80px;
 	@include flex-center;
 	@include background-secondary;
+	width: 80px;
+	height: 80px;
 	border-radius: 50%;
 	position: fixed;
 	bottom: -0.1875rem;

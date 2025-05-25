@@ -1,4 +1,5 @@
-@use '../../../../common/mixins' as *;
+@use '../../../common/mixins' as *;
+
 .burgerModal {
 	position: fixed;
 	top: 0;
@@ -8,11 +9,12 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: rgba(0, 0, 0, 0.5); // Чёрный фон по всему экрану
+	background-color: rgba(0, 0, 0, 0.5);
 	opacity: 0;
 	visibility: hidden;
 	transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
 	z-index: 5;
+
 	&.active {
 		opacity: 1;
 		visibility: visible;
@@ -32,10 +34,11 @@
 
 	@media (min-width: 1151.98px) {
 		width: 50%;
-		height: 100%; // занимает полную высоту
-		margin-left: auto; // выравнивает контент по правому краю
+		height: 100%;
+		margin-left: auto;
 	}
 }
+
 .burgerModal__content_block {
 	@include flex-center;
 	height: 100%;

@@ -11,34 +11,39 @@
 	height: 2.5rem;
 	overflow: hidden;
 	transition: all 0.5s ease;
-	@media (min-width: 575.98px) {
-		top: 1.25rem;
-		top: 2.25rem;
-		right: 5rem;
-	}
-
 	background-color: transparent;
+
 	&.expanded {
 		width: 100%;
-
 		border-radius: 1.25rem;
-		@media (min-width: 575.98px) {
-			width: 50%;
-		}
-		@media (min-width: 991.98px) {
-			width: 30%;
-		}
 	}
 
 	&.expanded .search__input {
 		opacity: 1;
 	}
+
 	&.expanded .search__btn {
 		transition: all 0.5s ease;
 		transform: rotate(44deg);
 		opacity: 1;
 	}
+
+	@media (min-width: 575.98px) {
+		top: 2.25rem;
+		right: 5rem;
+
+		&.expanded {
+			width: 50%;
+		}
+	}
+
+	@media (min-width: 991.98px) {
+		&.expanded {
+			width: 30%;
+		}
+	}
 }
+
 .search__input {
 	@include text-universal;
 	@include glass-background;
@@ -66,7 +71,7 @@
 }
 
 .search__icon {
+	font-size: 1.4rem;
 	@include text-universal;
 	@include text-hover;
-	font-size: 1.4rem;
 }

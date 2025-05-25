@@ -1,4 +1,4 @@
-@use '../../../../common/mixins' as *;
+@use '../../../common/mixins' as *;
 
 .burger {
 	@include flex-center;

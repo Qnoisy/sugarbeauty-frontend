@@ -1,10 +1,10 @@
+import { Burger } from '../../components/BottomNav/Burger';
+import { BurgerModal } from '../../components/BottomNav/BurgerModal';
 import { Container } from '../../components/Container';
 import { Logo } from '../../components/Logo';
 import { CustomNav } from '../../components/UI/CustomNav';
 import useCustomMediaQueries from '../../hooks/useCustomMediaQueries';
 import { menuItems } from '../../router';
-import { Burger } from './BottomNav/Burger';
-import { BurgerModal } from './BottomNav/BurgerModal';
 import styles from './Header.module.scss';
 import { Search } from './Search';
 

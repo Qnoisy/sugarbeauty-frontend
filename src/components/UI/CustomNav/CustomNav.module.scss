@@ -11,6 +11,7 @@
 	text-decoration: none;
 	text-transform: uppercase;
 	text-align: center;
+
 	&::after {
 		content: '';
 		position: absolute;
@@ -27,12 +28,13 @@
 	}
 
 	&.noLine::after {
-		display: none; /* Убираем линию под элементом */
+		display: none;
 	}
 }
 
 .active {
 	@include text-special;
+
 	&::after {
 		width: 100%;
 		background-color: currentColor;

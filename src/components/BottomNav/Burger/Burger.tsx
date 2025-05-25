@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import Hamburger from 'hamburger-react';
-import { useNav } from '../../../../context/useNav';
+import { useNav } from '../../../context/useNav';
 import styles from './Burger.module.scss';
 
 // interface BurgerProps {

@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import type { ReactNode } from 'react';
-import { useNav } from '../../../../context/useNav';
-import { useEscapeKey } from '../../../../hooks/useEscapeKey';
+import { useNav } from '../../../context/useNav';
+import { useEscapeKey } from '../../../hooks/useEscapeKey';
 import styles from './BurgerModal.module.scss';
 
 interface BurgerModalProps {

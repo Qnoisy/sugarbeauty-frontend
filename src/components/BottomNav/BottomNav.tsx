@@ -7,12 +7,7 @@ import styles from './BottomNav.module.scss';
 import { Burger } from './Burger';
 import { BurgerModal } from './BurgerModal';
 
-interface BottomNavProps {
-	isOpen: boolean;
-	setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-export const BottomNav = ({ isOpen, setOpen }: BottomNavProps) => {
+export const BottomNav = () => {
 	return (
 		<>
 			<nav className={styles.bottomNav}>
@@ -25,7 +20,7 @@ export const BottomNav = ({ isOpen, setOpen }: BottomNavProps) => {
 					</Link>
 				</div>
 				<div className={styles.navBurger}>
-					<Burger isOpen={isOpen} setOpen={setOpen} />
+					<Burger />
 				</div>
 				<div className={styles.bottomNav__links}>
 					<ThemeButton />
@@ -35,7 +30,7 @@ export const BottomNav = ({ isOpen, setOpen }: BottomNavProps) => {
 				</div>
 			</nav>
 			<div className={styles.navBurgerBottom}></div>
-			<BurgerModal isActive={isOpen} setIsActive={setOpen}>
+			<BurgerModal>
 				<div style={{ textAlign: 'center' }}>
 					<CustomNav customStyles={styles.customNav__style} items={menuItems} />
 				</div>

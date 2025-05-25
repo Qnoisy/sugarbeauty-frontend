@@ -1,0 +1,18 @@
+@use '../../../common/mixins' as *;
+
+.customButton {
+	font-size: 1.125rem;
+	text-transform: uppercase;
+	width: 100%;
+
+	@include flex-center;
+	@include button-style;
+
+	@media (min-width: 767.98px) {
+		width: auto;
+	}
+
+	strong {
+		@include text-special;
+	}
+}

@@ -1,0 +1,9 @@
+@use '../../common/mixins' as *;
+
+.theme__btn {
+	@include text-base;
+	background-color: transparent;
+	display: flex;
+	align-items: center;
+	font-size: 1.7rem;
+}
