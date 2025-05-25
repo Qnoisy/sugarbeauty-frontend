@@ -1,0 +1,13 @@
+@use '../../../../common/mixins' as *;
+
+.burger {
+	@include flex-center;
+	@include text-universal;
+	justify-content: flex-end;
+	z-index: 30;
+	padding: 1rem;
+}
+
+.burger__open {
+	@include text-secondary;
+}

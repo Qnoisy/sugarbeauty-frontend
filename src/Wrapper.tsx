@@ -1,6 +1,7 @@
 import './common/general.scss';
 import { NavProvider } from './context/useNav';
 import AppRouter from './router/AppRouter';
+import { Header } from './sections/Header';
 const Wrapper: React.FC = () => {
 	// const { isMobile } = useCustomMediaQueries();
 	// const isLoginPage = useMatch('/');
@@ -8,7 +9,8 @@ const Wrapper: React.FC = () => {
 	return (
 		<NavProvider>
 			<div className='wrapper'>
-				{/* <Header/>
+				<Header />
+				{/* 
 			{isLoginPage && <MainHeader />} */}
 
 				<main>

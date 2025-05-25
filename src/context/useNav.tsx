@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from 'react';
 
 type NavContextType = {
 	isOpen: boolean;
-	setOpen: (open: boolean) => void;
+	setOpen: (value: React.SetStateAction<boolean>) => void;
 };
 
 const NavContext = createContext<NavContextType | undefined>(undefined);
