@@ -4,8 +4,10 @@
 	@include flex-center;
 	@include text-universal;
 	justify-content: flex-end;
-	z-index: 30;
 	padding: 1rem;
+
+	position: relative;
+	z-index: 9999; // Поверх всего
 }
 
 .burger__open {

@@ -31,6 +31,9 @@
 		display: none;
 	}
 }
+.customNav__items {
+	@include text-base;
+}
 
 .active {
 	@include text-special;

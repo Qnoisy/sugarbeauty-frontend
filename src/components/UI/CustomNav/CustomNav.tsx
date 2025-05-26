@@ -29,7 +29,7 @@ export const CustomNav = ({
 							[styles.noLine]: disableAnimation,
 						})}
 					>
-						<strong>{item.title}</strong>
+						<strong className={styles.customNav__item}>{item.title}</strong>
 					</Link>
 				);
 			})}

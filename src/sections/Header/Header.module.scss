@@ -5,7 +5,7 @@
 	width: 100%;
 	left: 0;
 	top: 0;
-	z-index: 1;
+	z-index: 100;
 
 	&::before {
 		content: '';
@@ -34,6 +34,18 @@
 }
 
 .header__logo {
-	@include flex-center;
-	gap: 2rem;
+	display: none;
+	@media (min-width: 575.98px) {
+		display: flex;
+		gap: 2rem;
+		@include flex-center;
+	}
+}
+
+.burgerWrapper {
+	display: none;
+
+	@media (min-width: 575.98px) {
+		display: block;
+	}
 }

@@ -13,6 +13,10 @@
 	align-items: center;
 	height: 3rem;
 	padding: 0 1rem;
+
+	@media (min-width: 575.98px) {
+		display: none;
+	}
 }
 
 .bottomNav__links {
@@ -40,8 +44,8 @@
 .navBurgerBottom {
 	@include flex-center;
 	@include background-secondary;
-	width: 80px;
-	height: 80px;
+	width: 5.125rem;
+	height: 5.125rem;
 	border-radius: 50%;
 	position: fixed;
 	bottom: -0.1875rem;
@@ -49,8 +53,11 @@
 	padding: 1rem;
 	box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 	transform: translateX(-50%);
-	z-index: 9;
+	z-index: 1000;
 	pointer-events: none;
+	@media (min-width: 575.98px) {
+		display: none;
+	}
 }
 
 .customNav__style {

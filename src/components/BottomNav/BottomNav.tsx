@@ -12,10 +12,10 @@ export const BottomNav = () => {
 		<>
 			<nav className={styles.bottomNav}>
 				<div className={styles.bottomNav__links}>
-					<Link to={'/'} className={styles.bottomNav__link}>
+					<Link to='/' className={styles.bottomNav__link}>
 						<BsFillEmojiSmileFill />
 					</Link>
-					<Link to={'/'} className={styles.bottomNav__link}>
+					<Link to='/' className={styles.bottomNav__link}>
 						<BsFillEmojiSmileFill />
 					</Link>
 				</div>
@@ -24,7 +24,7 @@ export const BottomNav = () => {
 				</div>
 				<div className={styles.bottomNav__links}>
 					<ThemeButton />
-					<Link to={'/'} className={styles.bottomNav__link}>
+					<Link to='/' className={styles.bottomNav__link}>
 						<BsFillEmojiSmileFill />
 					</Link>
 				</div>
