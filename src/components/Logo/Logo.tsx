@@ -6,7 +6,7 @@ export const Logo = () => {
 		<Link to={'/'} className={styles.logo}>
 			<img
 				style={{ height: '5rem', width: '6rem' }}
-				src='/img/logo.svg'
+				src='/img/logo/logo.svg'
 				alt=''
 			/>
 		</Link>

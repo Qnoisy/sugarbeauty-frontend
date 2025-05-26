@@ -13,19 +13,19 @@ import { Search } from './Search';
 // }
 
 export const Header = () => {
-	const { isTablet } = useCustomMediaQueries();
+	const { isDesktop } = useCustomMediaQueries();
 	return (
 		<header className={styles.header}>
 			<Container>
 				<div className={styles.header__row}>
-					{isTablet && (
+					{isDesktop && (
 						<div className={styles.header__logo}>
 							<Logo />
 							<CustomNav items={menuItems} />
 						</div>
 					)}
 					<Search />
-					{isTablet && <Burger />}
+					{isDesktop && <Burger />}
 				</div>
 				<BurgerModal>
 					<CustomNav customStyles={styles.customNav__style} items={menuItems} />

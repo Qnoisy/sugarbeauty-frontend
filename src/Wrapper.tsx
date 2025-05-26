@@ -8,7 +8,7 @@ import { Footer } from './sections/Footer';
 import { Header } from './sections/Header';
 import { MainHeader } from './sections/MainHeader';
 const Wrapper: React.FC = () => {
-	const { isMobile } = useCustomMediaQueries();
+	const { isTablet } = useCustomMediaQueries();
 	const isLoginPage = useMatch('/');
 
 	return (
@@ -23,7 +23,7 @@ const Wrapper: React.FC = () => {
 
 				<Footer />
 
-				{isMobile && <BottomNav />}
+				{isTablet && <BottomNav />}
 			</div>
 		</NavProvider>
 	);
