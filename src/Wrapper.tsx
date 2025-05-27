@@ -17,7 +17,6 @@ const Wrapper: React.FC = () => {
 				<main>
 					<AppRouter />
 				</main>
-
 				<Footer />
 
 				<BottomNav />

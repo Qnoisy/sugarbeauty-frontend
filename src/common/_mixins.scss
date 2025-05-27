@@ -67,26 +67,26 @@
 	@include transition(border-color);
 }
 
-@mixin button-style {
-	@include border;
-	background-color: var(--button-background-color);
-	padding: 0.75rem;
-	font-size: 1rem;
-	transition: background-color 0.3s ease, color 0.3s ease;
+// @mixin button-style {
+// 	@include border;
+// 	background-color: var(--button-background-color);
+// 	padding: 0.75rem;
+// 	font-size: 1rem;
+// 	transition: background-color 0.3s ease, color 0.3s ease;
 
-	@media (hover: hover) {
-		&:hover {
-			@include text-color(--button-text-color-hover, 0.3s);
-			background-color: var(--button-background-color-hover);
-		}
-	}
-	@media (hover: none) {
-		&:focus {
-			@include text-color(--button-text-color-hover, 0.3s);
-			background-color: var(--button-background-color-hover);
-		}
-	}
-}
+// 	@media (hover: hover) {
+// 		&:hover {
+// 			@include text-color(--button-text-color-hover, 0.3s);
+// 			background-color: var(--button-background-color-hover);
+// 		}
+// 	}
+// 	@media (hover: none) {
+// 		&:focus {
+// 			@include text-color(--button-text-color-hover, 0.3s);
+// 			background-color: var(--button-background-color-hover);
+// 		}
+// 	}
+// }
 
 // Анимации
 @mixin animated-gradient {
