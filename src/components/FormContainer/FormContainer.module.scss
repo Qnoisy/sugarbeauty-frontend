@@ -1,0 +1,47 @@
+/* FormContainer.module.scss */
+@use '../../common/mixins' as *;
+
+.form {
+	margin-top: 2rem;
+
+	&__title {
+		@include background-base;
+		@include text-special;
+		text-align: center;
+		padding: 1rem;
+		border-radius: 2rem;
+		margin-bottom: 2rem;
+		font-size: 1.5rem;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	&__content {
+		padding: 2rem;
+		border-radius: 2rem;
+		@include background-base;
+	}
+
+	@media (min-width: 575.98px) {
+		margin-top: 7rem;
+		line-height: 1;
+		&__title {
+			font-size: 2.25rem;
+		}
+	}
+}
+.form__link {
+	display: block;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	background-color: transparent;
+	margin-bottom: 0.75rem;
+	&:hover {
+		text-decoration: underline;
+	}
+	@media (min-width: 767.98px) {
+		margin-bottom: 1rem;
+	}
+	span {
+		padding-left: 0.3125rem;
+	}
+}

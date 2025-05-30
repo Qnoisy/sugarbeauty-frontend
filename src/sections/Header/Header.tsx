@@ -3,7 +3,7 @@ import { BurgerModal } from '../../components/BottomNav/BurgerModal';
 import { Container } from '../../components/Container';
 import { Logo } from '../../components/Logo';
 import { CustomNav } from '../../components/UI/CustomNav';
-import { menuItems } from '../../router';
+import { menuItems } from '../../router/Routes';
 import styles from './Header.module.scss';
 import { Search } from './Search';
 

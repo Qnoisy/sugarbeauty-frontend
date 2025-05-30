@@ -1,0 +1,31 @@
+@use '../../../common/mixins' as *;
+.dashboard {
+	margin-bottom: 0.75rem;
+	@media (min-width: 767.98px) {
+		margin-bottom: 1rem;
+	}
+	&__list {
+		display: grid;
+		gap: 2rem;
+		grid-template-columns: repeat(3, 1fr);
+	}
+	&__item {
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 1fr;
+		text-align: center;
+		@include background-base;
+		padding: 2rem;
+		border-radius: 2rem;
+		padding: 1rem;
+	}
+	&__icon {
+		font-size: 4rem;
+	}
+}
+
+// 	@media (min-width: 319.98px) {}
+//   @media (min-width: 399.98px) {}
+//   @media (min-width: 575.98px) {}
+//   @media (min-width: 767.98px) {}
+//   @media (min-width: 991.98px) {}
+//   @media (min-width: 1199.98px) {}

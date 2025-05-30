@@ -1,6 +1,6 @@
 import { BsFillEmojiSmileFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
-import { menuItems } from '../../router';
+import { menuItems } from '../../router/Routes';
 import { ThemeButton } from '../ThemeButton';
 import { CustomNav } from '../UI/CustomNav';
 import styles from './BottomNav.module.scss';

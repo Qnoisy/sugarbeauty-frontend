@@ -1,4 +1,5 @@
 import styles from './Footer.module.scss';
+import { FooterForm } from './FooterForm';
 
 export const FooterSubscribe = () => {
 	return (
@@ -7,7 +8,7 @@ export const FooterSubscribe = () => {
 				<h2 className={styles.footer__title}>
 					<strong>Stay Informed</strong>
 				</h2>
-				{/* <FooterForm /> */}
+				<FooterForm />
 			</div>
 		</div>
 	);

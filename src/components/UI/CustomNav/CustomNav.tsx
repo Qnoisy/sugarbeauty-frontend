@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { Link, useLocation } from 'react-router-dom';
-import type { MenuItem } from '../../../router';
+import type { MenuItem } from '../../../router/Routes';
 import styles from './CustomNav.module.scss';
 
 interface CustomNavProps {

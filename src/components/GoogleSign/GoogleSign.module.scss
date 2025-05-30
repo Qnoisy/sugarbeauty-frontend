@@ -1,0 +1,19 @@
+@use '../../common/mixins' as *;
+.google__sign {
+	@include flex-center;
+	border-radius: 2rem;
+	background-color: transparent;
+	gap: 1rem;
+	font-size: 1.125rem;
+	margin-bottom: 0.75rem;
+	@media (min-width: 575.98px) {
+		margin-bottom: 1rem;
+	}
+	&:hover {
+		@include text-color(--button-text-color-hover, 0.3s);
+		background-color: var(--button-background-color-hover);
+	}
+	.google__img {
+		font-size: 1.5rem;
+	}
+}

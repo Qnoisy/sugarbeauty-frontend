@@ -1,0 +1,7 @@
+@use '../../../common/mixins' as *;
+
+.editName__form {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+}

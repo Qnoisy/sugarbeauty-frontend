@@ -1,0 +1,51 @@
+@use '../../../common/mixins' as *;
+.userManagement {
+	@include background-base;
+	padding: 2rem;
+	border-radius: 2rem;
+	margin-bottom: 2rem;
+	&__title {
+		@include text-special;
+		text-transform: uppercase;
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+	}
+	&__input {
+		@include border(0.5rem);
+		@include text-base;
+		width: 100%;
+		padding: 8px;
+		margin-bottom: 1.5rem;
+	}
+	&__list {
+		list-style: none;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: auto;
+		gap: 1rem;
+		margin-bottom: 1rem;
+	}
+	&__li {
+		@include border(0.5rem);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+		padding: 1rem 0.5rem;
+		line-height: normal;
+		font-size: 1rem;
+		text-align: center;
+		div {
+			margin-left: 0.2rem;
+		}
+	}
+	&__btn {
+		position: relative;
+		top: -0.5rem;
+		align-self: flex-start;
+		padding: 0.2rem;
+		padding-bottom: 0;
+		font-size: 1.1rem;
+		background-color: transparent;
+	}
+}

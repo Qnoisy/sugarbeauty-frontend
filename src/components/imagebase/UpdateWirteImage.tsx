@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { app } from '../../firebase/firebase';
-import CustomFileInput from '../UI/CustomFileInput';
+import CustomFileInput from '../UI/CustomFileInput/CustomFileInput';
 const convertUrlToPath = (url: string): string | null => {
 	const match = url.match(/\/o\/(.+)\?alt=media/);
 	return match ? decodeURIComponent(match[1]) : null;

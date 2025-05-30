@@ -1,5 +1,8 @@
 import { Formik, Form as FormikForm } from 'formik';
 
+import { CustomButton } from '../../components/UI/CustomButton';
+import { CustomInput } from '../../components/UI/CustomInput';
+import { subscribeSchema } from '../../utils/shema';
 import styles from './Footer.module.scss';
 
 export const FooterForm = () => {

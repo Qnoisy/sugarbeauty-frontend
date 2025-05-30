@@ -1,5 +1,5 @@
 import { CustomNav } from '../../components/UI/CustomNav';
-import { menuItems } from '../../router';
+import { menuItems } from '../../router/Routes';
 import styles from './Footer.module.scss';
 
 export const FooterNav = () => {
