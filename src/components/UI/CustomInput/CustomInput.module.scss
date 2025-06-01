@@ -15,8 +15,8 @@
 }
 
 .customInput {
-	@include border(0.5rem);
-
+	@include button-style;
+	margin-bottom: 0.5rem;
 	&.error {
 		border-color: #830000;
 	}

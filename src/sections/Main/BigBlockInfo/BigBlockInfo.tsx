@@ -10,7 +10,7 @@ export const BigBlockInfo = () => {
 			<Container section>
 				<div className={styles.bigBlockInfo__content}>
 					<div className={styles.bigBlockInfo__img}>
-						<img src='img/frame3.JPG' alt='' />
+						<img src='img/frame3.jpg' alt='' />
 						<div className={styles.bigBlockInfo__row}>
 							<div className={styles.bigBlockInfo__title}>
 								<strong>Lorem ipsum dolor sit amet.</strong>

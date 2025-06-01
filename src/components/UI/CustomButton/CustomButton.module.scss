@@ -2,7 +2,9 @@
 
 /* From Uiverse.io by shah1345 */
 .button {
-	display: inline-block;
+	display: flex;
+	justify-content: center;
+	flex-wrap: nowrap;
 	transition: all 0.2s ease-in;
 	position: relative;
 	overflow: hidden;

@@ -57,7 +57,7 @@
 }
 
 .swiper__btn {
-	width: 250px;
+	align-self: flex-end;
 }
 
 .title {
@@ -67,7 +67,7 @@
 	font-size: 1.5rem;
 	line-height: normal;
 	margin-bottom: 1rem;
-
+	align-self: center;
 	@media (min-width: 767.98px) {
 		font-size: 2.25rem;
 	}

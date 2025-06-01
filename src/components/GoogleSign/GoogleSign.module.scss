@@ -1,5 +1,6 @@
 @use '../../common/mixins' as *;
 .google__sign {
+	@include button-style;
 	@include flex-center;
 	border-radius: 2rem;
 	background-color: transparent;

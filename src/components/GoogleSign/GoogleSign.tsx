@@ -1,6 +1,6 @@
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
-import { FaGoogle } from 'react-icons/fa6';
+import { FcGoogle } from 'react-icons/fc';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth, { db } from '../../firebase/firebase';
@@ -49,7 +49,7 @@ export const GoogleSign: React.FC = () => {
 			type='button'
 			className={styles.google__sign}
 		>
-			<FaGoogle className={styles.google__img} />
+			<FcGoogle className={styles.google__img} />
 			<strong>Kontynuuj z Google</strong>
 		</button>
 	);

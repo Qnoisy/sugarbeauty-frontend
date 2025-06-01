@@ -133,7 +133,7 @@
 
 .footer__icon {
 	transition: all 0.2s;
-
+	@include text-base;
 	&:hover {
 		transform: scale(1.2);
 	}

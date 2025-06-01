@@ -1,7 +1,7 @@
 @use '../../common/mixins' as *;
 
 .theme__btn {
-	@include text-base;
+	@include text-secondary;
 	background-color: transparent;
 	display: flex;
 	align-items: center;

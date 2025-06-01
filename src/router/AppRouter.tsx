@@ -40,7 +40,10 @@ const AppRouter: React.FC = () => {
 			</Route>
 
 			{/* Редирект: в зависимости от статуса */}
-			<Route path='*' element={<Navigate to={isAuth ? '/' : '/signIn'} />} />
+			<Route
+				path='*'
+				element={<Navigate to={isAuth ? '/profile' : '/signIn'} />}
+			/>
 		</Routes>
 	);
 };
