@@ -3,13 +3,14 @@ import { Form, Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
+import type React from 'react';
 import { Container } from '../../components/Container';
 import { CustomButton } from '../../components/UI/CustomButton';
 import { CustomInput } from '../../components/UI/CustomInput';
 import { ResetPasswordSchema } from '../../utils/shema';
 import styles from './ResetPassword.module.scss';
 
-const ResetPassword = () => {
+const ResetPassword: React.FC = () => {
 	const navigate = useNavigate();
 
 	const handleResetPassword = async (email: string) => {

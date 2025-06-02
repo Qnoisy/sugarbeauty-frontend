@@ -1,4 +1,4 @@
-@use '../../../common/mixins' as *;
+@use '../../../common/mixins';
 
 .customNav {
 	display: flex;
@@ -11,6 +11,7 @@
 	text-decoration: none;
 	text-transform: uppercase;
 	text-align: center;
+	@include mixins.text-base;
 
 	&::after {
 		content: '';
@@ -30,14 +31,16 @@
 	&.noLine::after {
 		display: none;
 	}
-}
-.customNav__items {
-	@include text-base;
+
+	@media (hover: none) {
+		&:not(.active):hover::after {
+			width: 0;
+		}
+	}
 }
 
-.active {
-	@include text-special;
-
+.customNav__items.active {
+	@include mixins.text-special;
 	&::after {
 		width: 100%;
 		background-color: currentColor;

@@ -7,7 +7,7 @@ export const FooterNav = () => {
 		<div className={styles.block2}>
 			<CustomNav
 				items={menuItems}
-				customStyles={styles.footer__nav}
+				className={styles.footer__nav}
 				disableAnimation
 			/>
 		</div>

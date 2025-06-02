@@ -1,3 +1,4 @@
+import type React from 'react';
 import styles from './GallerySection.module.scss';
 
 const slides = [
@@ -23,7 +24,7 @@ const slides = [
 	{ image: 'https://picsum.photos/800/400?random=40' },
 ];
 
-export const GallerySection = () => {
+export const GallerySection: React.FC = () => {
 	return (
 		<div className={styles.gallerySection}>
 			<h2 className={styles.gallerySection__title}>

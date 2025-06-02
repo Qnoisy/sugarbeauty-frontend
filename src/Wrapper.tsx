@@ -17,7 +17,7 @@ const Wrapper: React.FC = () => {
 				<Header />
 				{isLoginPage && <MainHeader />}
 				<AppInitializer />
-				<main>{!isLoading ? <AppRouter /> : <div>Loading...</div>}</main>
+				<main>{!isLoading ? <AppRouter /> : <></>}</main>
 				<Footer />
 				<BottomNav />
 			</div>

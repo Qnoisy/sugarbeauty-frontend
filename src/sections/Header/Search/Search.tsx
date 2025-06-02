@@ -32,7 +32,7 @@ export const Search = () => {
 				placeholder='Search...'
 			/>
 			<button className={styles.search__btn} onClick={toggleSearch}>
-				<FaMagnifyingGlass className={styles.search__icon} />
+				<FaMagnifyingGlass className={styles['search__btn--icon']} />
 			</button>
 		</div>
 	);

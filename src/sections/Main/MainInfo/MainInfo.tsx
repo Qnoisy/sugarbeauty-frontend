@@ -40,7 +40,7 @@ export const MainInfo = ({ data, imagePosition = 'left' }: MainInfoProps) => {
 							<p className={styles.mainInfo__text}>{data.additionalText}</p>
 						)}
 
-						<CustomButton text='Подробнее' />
+						<CustomButton text='Подробнее' className={styles.mainInfo__btn} />
 					</div>
 				</div>
 			</Container>

@@ -1,4 +1,3 @@
-@use '../../common/mixins' as *;
 .mainHeader {
 	position: relative;
 	width: 100%;
@@ -29,7 +28,7 @@
 		border-radius: 0rem 0rem 3rem 3rem;
 	}
 }
-.mainHeader__Container {
+.mainHeader__container {
 	height: 100%;
 	display: flex;
 	justify-content: flex-end;
@@ -53,7 +52,7 @@
 		line-height: 3.75rem;
 	}
 }
-.mainHeader__sub-title {
+.mainHeader__sub--title {
 	font-size: 1rem;
 	margin-bottom: 1rem;
 	@media (min-width: 767.98px) {

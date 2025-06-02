@@ -1,4 +1,4 @@
-@use '../../common/mixins' as *;
+@use '../../common/mixins';
 
 .gallerySection {
 	padding: 5rem 24px;
@@ -10,7 +10,7 @@
 }
 
 .gallerySection__title {
-	@include text-secondary;
+	@include mixins.text-secondary;
 	font-size: 2rem;
 	margin-bottom: 1.5rem;
 }

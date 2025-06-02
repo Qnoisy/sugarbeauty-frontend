@@ -6,25 +6,27 @@ import styles from './CustomNav.module.scss';
 interface CustomNavProps {
 	items: MenuItem[];
 	disableAnimation?: boolean;
-	customStyles?: string;
+	className?: string;
+	color?: string;
 }
 
 export const CustomNav = ({
 	items,
 	disableAnimation = false,
-	customStyles,
+	className,
+	color,
 }: CustomNavProps) => {
 	const location = useLocation();
 
 	return (
-		<nav className={classNames(styles.customNav, customStyles)}>
+		<nav className={classNames(styles.customNav, className)}>
 			{items.map((item: MenuItem, index: number) => {
 				const isActive = location.pathname === item.path;
 				return (
 					<Link
 						key={index}
 						to={item.path}
-						className={classNames(styles.customNav__items, {
+						className={classNames(styles.customNav__items, color, {
 							[styles.active]: isActive,
 							[styles.noLine]: disableAnimation,
 						})}

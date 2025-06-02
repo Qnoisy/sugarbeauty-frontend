@@ -1,12 +1,11 @@
-/* FormContainer.module.scss */
-@use '../../common/mixins' as *;
+@use '../../common/mixins';
 
 .form {
 	margin-top: 2rem;
 
 	&__title {
-		@include background-base;
-		@include text-special;
+		@include mixins.background-base;
+		@include mixins.text-special;
 		text-align: center;
 		padding: 1rem;
 		border-radius: 2rem;
@@ -18,7 +17,7 @@
 	&__content {
 		padding: 2rem;
 		border-radius: 2rem;
-		@include background-base;
+		@include mixins.background-base;
 	}
 
 	@media (min-width: 575.98px) {
@@ -35,7 +34,7 @@
 	text-transform: uppercase;
 	background-color: transparent;
 	margin-bottom: 0.75rem;
-	@include text-base;
+	@include mixins.text-base;
 
 	&:hover {
 		text-decoration: underline;

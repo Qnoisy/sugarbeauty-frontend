@@ -1,6 +1,6 @@
-@use '../../../common/mixins' as *;
+@use '../../../common/mixins';
 .search {
-	@include border(50%, 3px, var(--universal-text-color));
+	@include mixins.border(50%, 3px, var(--text-color-universal));
 	box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3),
 		inset 2px 2px 5px rgba(0, 0, 0, 0.3);
 	position: absolute;
@@ -45,8 +45,8 @@
 }
 
 .search__input {
-	@include text-universal;
-	@include glass-background;
+	@include mixins.text-universal;
+	@include mixins.glass-background;
 	font-size: 1rem;
 	padding-left: 1rem;
 	padding-right: 2rem;
@@ -55,12 +55,12 @@
 	height: 100%;
 	opacity: 0;
 	&::placeholder {
-		@include text-universal;
+		@include mixins.text-universal;
 		opacity: 0.7;
 	}
 }
 .search__btn {
-	@include flex-center;
+	@include mixins.flex-center;
 	background-color: transparent;
 	position: absolute;
 	width: 33px;
@@ -70,8 +70,8 @@
 	transition: all 0.5s ease;
 }
 
-.search__icon {
+.search__btn--icon {
 	font-size: 1.4rem;
-	@include text-universal;
-	@include text-hover;
+	@include mixins.text-universal;
+	@include mixins.text-hover;
 }

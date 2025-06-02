@@ -1,15 +1,15 @@
-@use '../../../common/mixins' as *;
+@use '../../../common/mixins';
 
 .burger {
-	@include flex-center;
-	@include text-universal;
+	@include mixins.flex-center;
+	@include mixins.text-universal;
 	justify-content: flex-end;
 	padding: 1rem;
 
 	position: relative;
-	z-index: 9999; // Поверх всего
+	z-index: 9999;
 }
 
 .burger__open {
-	@include text-secondary;
+	@include mixins.text-secondary;
 }

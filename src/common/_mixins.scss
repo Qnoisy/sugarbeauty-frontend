@@ -1,4 +1,4 @@
-@use 'variables' as *;
+@use 'variables';
 
 // Центрирование
 @mixin flex-center {
@@ -24,7 +24,7 @@
 	@include text-color(--text-color-special);
 }
 @mixin text-universal {
-	@include text-color(--universal-text-color);
+	@include text-color(--text-color-universal);
 }
 
 @mixin text-hover($color: var(--text-color-hover)) {
@@ -53,12 +53,12 @@
 	@include background-color(--background-color);
 }
 @mixin background-secondary {
-	@include background-color(--second-background-color, --text-color-second);
+	@include background-color(--background-color-second, --text-color-second);
 }
 
 // Кнопки и бордеры
 @mixin border(
-	$radius: $radius-default,
+	$radius: variables.$radius-default,
 	$size: 1px,
 	$color: var(--border-color)
 ) {

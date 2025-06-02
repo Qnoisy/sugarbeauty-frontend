@@ -1,8 +1,8 @@
 @use '../../../common/mixins' as *;
 
 .inputWrapper {
-	width: 100%;
 	@include flex-gap(0rem, column);
+	width: 100%;
 	margin-bottom: 0.75rem;
 	@media (min-width: 575.98px) {
 		margin-bottom: 1rem;

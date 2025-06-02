@@ -1,6 +1,6 @@
-// src/pages/Success.tsx
+import type React from 'react';
 
-const SuccessPay = () => {
+const SuccessPay: React.FC = () => {
 	return (
 		<div>
 			<h1>Payment successful!</h1>

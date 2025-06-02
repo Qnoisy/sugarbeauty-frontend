@@ -1,3 +1,4 @@
+@use '../../../common/mixins';
 .bigBlockInfo {
 	background-color: rgb(39, 30, 30);
 }
@@ -37,8 +38,11 @@
 	background: rgba(0, 0, 0, 0.6);
 }
 .bigBlockInfo__title {
+	display: flex;
+	align-items: center;
 	font-size: 1.5rem;
 	line-height: 1.5rem;
+	@include mixins.text-universal;
 	@media (min-width: 767.98px) {
 		font-size: 2.25rem;
 		line-height: 2.25rem;

@@ -6,13 +6,13 @@ import styles from './Container.module.scss';
 interface ContainerProps {
 	children: ReactNode;
 	section?: boolean;
-	customStyle?: string;
+	className?: string;
 }
 
 export const Container = ({
 	children,
 	section = false,
-	customStyle,
+	className,
 }: ContainerProps) => {
 	return (
 		<div
@@ -21,7 +21,7 @@ export const Container = ({
 				{
 					[styles['container__padding-disabled']]: !section,
 				},
-				customStyle
+				className
 			)}
 		>
 			{children}

@@ -1,4 +1,4 @@
-@use '../../common/mixins' as *;
+@use '../../common/mixins';
 
 .footer {
 	text-align: center;
@@ -6,7 +6,7 @@
 	border-radius: 2rem 2rem 0rem 0rem;
 	font-size: 1.1rem;
 
-	@include gradient-bottom;
+	@include mixins.gradient-bottom;
 
 	@media (min-width: 575.98px) {
 		padding-bottom: 0;
@@ -63,7 +63,7 @@
 }
 
 .footerForm {
-	@include border;
+	@include mixins.border;
 	padding: 1rem;
 }
 
@@ -84,12 +84,12 @@
 }
 
 .footer__subscribe {
-	@include border;
+	@include mixins.border;
 	padding: 1.5rem;
 }
 
 .footer__social {
-	@include flex-center;
+	@include mixins.flex-center;
 	justify-content: flex-center;
 	gap: 2rem;
 	font-size: 1.5rem;
@@ -133,7 +133,7 @@
 
 .footer__icon {
 	transition: all 0.2s;
-	@include text-base;
+	@include mixins.text-base;
 	&:hover {
 		transform: scale(1.2);
 	}

@@ -29,7 +29,7 @@ export const BurgerModal = ({ children }: BurgerModalProps) => {
 			})}
 		>
 			<div className={styles.burgerModal__content}>
-				<div className={styles.burgerModal__content_block}>{children}</div>
+				<div className={styles['burgerModal__content--block']}>{children}</div>
 			</div>
 		</div>
 	);

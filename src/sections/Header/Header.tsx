@@ -14,15 +14,19 @@ export const Header = () => {
 				<div className={styles.header__row}>
 					<div className={styles.header__logo}>
 						<Logo />
-						<CustomNav items={menuItems} />
+						<CustomNav items={menuItems} color={styles.header__nav} />
 					</div>
 					<Search />
-					<div className={styles.burgerWrapper}>
+					<div className={styles.header__burger}>
 						<Burger />
 					</div>
 				</div>
 				<BurgerModal>
-					<CustomNav customStyles={styles.customNav__style} items={menuItems} />
+					<CustomNav
+						className={styles.header__modal}
+						color={styles['header__modal--color']}
+						items={menuItems}
+					/>
 				</BurgerModal>
 			</Container>
 		</header>

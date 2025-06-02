@@ -1,7 +1,7 @@
-@use '../../common/mixins' as *;
+@use '../../common/mixins';
 
 .bottomNav {
-	@include background-secondary;
+	@include mixins.background-secondary;
 
 	position: fixed;
 	bottom: 0;
@@ -29,14 +29,14 @@
 }
 
 .bottomNav__link {
-	@include flex-center;
-	@include text-secondary;
+	@include mixins.flex-center;
+	@include mixins.text-secondary;
 	height: 1.5rem;
 }
 
 .navBurger {
-	@include flex-center;
-	@include background-secondary;
+	@include mixins.flex-center;
+	@include mixins.background-secondary;
 	position: relative;
 	top: -1rem;
 	z-index: 10;
@@ -44,8 +44,8 @@
 }
 
 .navBurgerBottom {
-	@include flex-center;
-	@include background-secondary;
+	@include mixins.flex-center;
+	@include mixins.background-secondary;
 	width: 5.125rem;
 	height: 5.125rem;
 	border-radius: 50%;

@@ -1,6 +1,6 @@
 *::-webkit-scrollbar {
-	width: 7px;
-	background-color: transparent !important;
+	width: 6px;
+	background-color: transparent;
 	border-radius: 0.625rem;
 }
 *::-webkit-scrollbar-track {
@@ -8,9 +8,9 @@
 	border-radius: 0.625rem;
 }
 *::-webkit-scrollbar-thumb {
-	background: #888;
+	background: #888888;
 	border-radius: 0.625rem;
 	&:hover {
-		background: #555;
+		background: #555555;
 	}
 }

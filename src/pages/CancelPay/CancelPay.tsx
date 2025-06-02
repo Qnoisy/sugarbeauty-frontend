@@ -1,6 +1,6 @@
-// src/pages/Cancel.tsx
+import type React from 'react';
 
-const CancelPay = () => {
+const CancelPay: React.FC = () => {
 	return (
 		<div>
 			<h1>Payment cancelled</h1>

@@ -2,8 +2,11 @@ import classNames from 'classnames';
 import Hamburger from 'hamburger-react';
 import { useNav } from '../../../context/useNav';
 import styles from './Burger.module.scss';
+interface BurgerProps {
+	color?: string;
+}
 
-export const Burger = () => {
+export const Burger = ({ color }: BurgerProps) => {
 	const { isOpen, setOpen } = useNav();
 
 	return (
@@ -12,7 +15,7 @@ export const Burger = () => {
 				[styles.burger__open]: isOpen,
 			})}
 		>
-			<Hamburger toggled={isOpen} toggle={setOpen} />
+			<Hamburger toggled={isOpen} toggle={setOpen} color={color} />
 		</div>
 	);
 };

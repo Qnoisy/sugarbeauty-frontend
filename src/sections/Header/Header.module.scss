@@ -1,4 +1,4 @@
-@use '../../common/mixins' as *;
+@use '../../common/mixins';
 
 .header {
 	position: fixed;
@@ -19,11 +19,6 @@
 	}
 }
 
-.customNav__style {
-	flex-direction: column;
-	text-align: center;
-}
-
 .header__row {
 	display: flex;
 	justify-content: space-between;
@@ -38,14 +33,23 @@
 	@media (min-width: 575.98px) {
 		display: flex;
 		gap: 2rem;
-		@include flex-center;
+		@include mixins.flex-center;
 	}
 }
-
-.burgerWrapper {
+.header__nav {
+	color: var(--nav-color);
+}
+.header__burger {
 	display: none;
 
 	@media (min-width: 575.98px) {
 		display: block;
 	}
+}
+.header__modal {
+	flex-direction: column;
+	text-align: center;
+}
+.header__modal--color {
+	color: var(--burger-color);
 }

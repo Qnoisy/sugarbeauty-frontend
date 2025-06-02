@@ -1,4 +1,4 @@
-@use '../../../common/mixins' as *;
+@use '../../../common/mixins';
 
 .burgerModal {
 	position: fixed;
@@ -22,7 +22,7 @@
 }
 
 .burgerModal__content {
-	@include background-secondary;
+	@include mixins.background-secondary;
 	cursor: auto;
 	position: relative;
 	z-index: 5;
@@ -39,7 +39,7 @@
 	}
 }
 
-.burgerModal__content_block {
-	@include flex-center;
+.burgerModal__content--block {
+	@include mixins.flex-center;
 	height: 100%;
 }

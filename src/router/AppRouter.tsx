@@ -17,18 +17,15 @@ const AppRouter: React.FC = () => {
 
 	return (
 		<Routes>
-			{/* Общие роуты — всегда доступны */}
 			{sharedRoutes.map((route, index) => (
 				<Route key={index} path={route.path} element={route.component} />
 			))}
 
-			{/* Публичные — только если НЕ авторизован */}
 			{!isAuth &&
 				publicRoutes.map((route, index) => (
 					<Route key={index} path={route.path} element={route.component} />
 				))}
 
-			{/* Приватные — только если авторизован */}
 			{isAuth &&
 				privateRoutes.map((route, index) => (
 					<Route key={index} path={route.path} element={route.component} />
@@ -39,7 +36,6 @@ const AppRouter: React.FC = () => {
 				<Route path='update-image/:id' element={<UpdateWriteImage />} />
 			</Route>
 
-			{/* Редирект: в зависимости от статуса */}
 			<Route
 				path='*'
 				element={<Navigate to={isAuth ? '/profile' : '/signIn'} />}

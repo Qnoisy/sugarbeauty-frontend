@@ -18,7 +18,6 @@ export interface RouteConfig {
 	component: ReactElement;
 }
 
-// 📌 Общие роуты — доступны всем
 export const sharedRoutes: RouteConfig[] = [
 	{ path: '/', component: <Main /> },
 	{ path: '/gallery', component: <GallerySection /> },
@@ -27,14 +26,12 @@ export const sharedRoutes: RouteConfig[] = [
 	{ path: '/readImage', component: <ReadImage /> },
 ];
 
-// 📌 Только для неавторизованных
 export const publicRoutes: RouteConfig[] = [
 	{ path: '/signIn', component: <SignIn /> },
 	{ path: '/signUp', component: <SignUp /> },
 	{ path: '/resetPassword', component: <ResetPassword /> },
 ];
 
-// 📌 Только для авторизованных
 export const privateRoutes: RouteConfig[] = [
 	{ path: '/profile', component: <Profile /> },
 	{ path: '/course', component: <Course /> },

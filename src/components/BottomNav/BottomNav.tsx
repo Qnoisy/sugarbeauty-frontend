@@ -20,7 +20,7 @@ export const BottomNav = () => {
 					</Link>
 				</div>
 				<div className={styles.navBurger}>
-					<Burger />
+					<Burger color='var(--burger-color)' />
 				</div>
 				<div className={styles.bottomNav__links}>
 					<ThemeButton />
@@ -32,7 +32,7 @@ export const BottomNav = () => {
 			<div className={styles.navBurgerBottom}></div>
 			<BurgerModal>
 				<div style={{ textAlign: 'center' }}>
-					<CustomNav customStyles={styles.customNav__style} items={menuItems} />
+					<CustomNav className={styles.customNav__style} items={menuItems} />
 				</div>
 			</BurgerModal>
 		</>
