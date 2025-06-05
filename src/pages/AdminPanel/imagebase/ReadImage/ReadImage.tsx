@@ -1,8 +1,9 @@
 import { get, getDatabase, ref } from 'firebase/database';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-import { app } from '../../firebase/firebase';
-import type { InitialImageInterface } from './WriteImage';
+
+import { app } from '../../../../firebase/firebase';
+import type { InitialImageInterface } from '../WriteImage/WriteImage';
 
 const ReadImage: React.FC = () => {
 	const [imagesArray, setImagesArray] = useState<InitialImageInterface[]>([]);

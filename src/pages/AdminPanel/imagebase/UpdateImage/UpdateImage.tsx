@@ -3,8 +3,10 @@ import { deleteObject, getStorage, ref as storageRef } from 'firebase/storage';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { app } from '../../firebase/firebase';
-import type { InitialImageInterface } from './WriteImage';
+import { CustomButton } from '../../../../components/UI/CustomButton';
+import { app } from '../../../../firebase/firebase';
+import type { InitialImageInterface } from '../WriteImage/WriteImage';
+import styles from './UpdateImage.module.scss';
 
 const UpdateImage: React.FC = () => {
 	const [imagesArray, setImagesArray] = useState<InitialImageInterface[]>([]);
@@ -21,6 +23,9 @@ const UpdateImage: React.FC = () => {
 					imageId: id,
 				}));
 				setImagesArray(data);
+				{
+					console.log(data);
+				}
 				toast.success('Images loaded successfully');
 			} else {
 				toast.warn('No images found');
@@ -56,21 +61,23 @@ const UpdateImage: React.FC = () => {
 	};
 
 	return (
-		<div className='container'>
-			<h2>Manage Images</h2>
-			<button onClick={fetchData}>Load Images</button>
+		<div className={styles.updateImage}>
+			<h2 className={styles.updateImage__title}>
+				<strong>Upload Images</strong>
+			</h2>
+			<CustomButton onClick={fetchData} text={'Load Images'} />
 			<ul>
 				{imagesArray.map(image => (
 					<li key={image.imageId}>
 						<img src={image.imageUrl} alt='Uploaded' width='150' />
-						<button
+						<CustomButton
 							onClick={() => navigate(`/admin/update-image/${image.imageId}`)}
-						>
-							Replace
-						</button>
-						<button onClick={() => deleteImage(image.imageId!, image.imageUrl)}>
-							Delete
-						</button>
+							text='Replace'
+						/>
+						<CustomButton
+							onClick={() => deleteImage(image.imageId!, image.imageUrl)}
+							text={'Delete'}
+						/>
 					</li>
 				))}
 			</ul>

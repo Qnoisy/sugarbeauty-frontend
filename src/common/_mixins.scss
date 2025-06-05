@@ -68,12 +68,14 @@
 }
 
 @mixin button-style {
-	@include border;
-	background-color: var(--button-background-color);
-	padding: 0.75rem;
-	font-size: 1rem;
-	transition: background-color 0.3s ease, color 0.3s ease;
-	color: var(--button-text-color);
+	& {
+		@include border;
+		background-color: var(--button-background-color);
+		padding: 0.75rem;
+		font-size: 1rem;
+		transition: background-color 0.3s ease, color 0.3s ease;
+		color: var(--button-text-color);
+	}
 
 	@media (hover: hover) {
 		&:hover {
@@ -143,11 +145,13 @@
 }
 
 @mixin flex-gap($gap: 1rem, $direction: row, $align: left, $justify: center) {
-	display: flex;
-	flex-direction: $direction;
-	gap: $gap;
-	align-items: $align;
-	justify-content: $justify;
+	& {
+		display: flex;
+		flex-direction: $direction;
+		gap: $gap;
+		align-items: $align;
+		justify-content: $justify;
+	}
 }
 
 @mixin box-shadow(

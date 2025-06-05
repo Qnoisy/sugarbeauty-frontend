@@ -8,8 +8,10 @@ import {
 
 import { Form, Formik, type FormikHelpers } from 'formik';
 import { toast } from 'react-toastify';
-import { app } from '../../firebase/firebase';
-import CustomFileInput from '../UI/CustomFileInput/CustomFileInput';
+import { CustomButton } from '../../../../components/UI/CustomButton';
+import CustomFileInput from '../../../../components/UI/CustomFileInput/CustomFileInput';
+import { app } from '../../../../firebase/firebase';
+import styles from './WriteImage.module.scss';
 
 export interface InitialImageInterface {
 	imageId?: string;
@@ -62,22 +64,25 @@ const WriteImage: React.FC = () => {
 	};
 
 	return (
-		<div className='container'>
-			<Formik initialValues={initialImageValues} onSubmit={handlerSubmit}>
-				{({ setFieldValue, isSubmitting }) => (
-					<Form>
-						<CustomFileInput
-							label='Choose Image'
-							name='imageFile'
-							setFieldValue={setFieldValue}
-						/>
-						<button type='submit' disabled={isSubmitting}>
-							{isSubmitting ? 'Uploading...' : 'Upload'}
-						</button>
-					</Form>
-				)}
-			</Formik>
-		</div>
+		<Formik initialValues={initialImageValues} onSubmit={handlerSubmit}>
+			{({ setFieldValue, isSubmitting }) => (
+				<Form className={styles.writeImage}>
+					<h2 className={styles.writeImage__title}>
+						<strong>Upload Images</strong>
+					</h2>
+					<CustomFileInput
+						label='Upload Image'
+						name='imageFile'
+						setFieldValue={setFieldValue}
+					/>
+					<CustomButton
+						text={isSubmitting ? 'Uploading...' : 'Upload'}
+						type='submit'
+						disabled={isSubmitting}
+					/>
+				</Form>
+			)}
+		</Formik>
 	);
 };
 

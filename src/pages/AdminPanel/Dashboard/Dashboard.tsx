@@ -1,53 +1,54 @@
-import React, { useEffect, useState } from 'react';
-import { FaImage, FaUserLarge, FaUserTie } from 'react-icons/fa6';
+import React, { useState } from 'react';
+import { FaImage, FaInfo, FaUserLarge } from 'react-icons/fa6';
 
+import axios from 'axios';
+import { CustomButton } from '../../../components/UI/CustomButton';
+import { CustomLoader } from '../../../components/UI/CustomLoader';
+import auth from '../../../firebase/firebase';
 import styles from './Dashboard.module.scss';
 
 // Типы для статистики
 interface Stats {
 	totalUsers: number;
-	adminUsers: number;
 	galleryItems: number;
 }
 
 const Dashboard: React.FC = () => {
 	const [stats, setStats] = useState<Stats>({
 		totalUsers: 0,
-		adminUsers: 0,
 		galleryItems: 0,
 	});
-	const [loading, setLoading] = useState(true);
+	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState<string | null>(null);
 
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				setLoading(true);
+	const fetchStats = async () => {
+		setLoading(true);
+		setError(null);
 
-				// Заменить на реальный API-запрос:
-				// const res = await fetch('/api/admin/stats');
-				// const data = await res.json();
-
-				// Моковые данные:
-				const data: Stats = {
-					totalUsers: 123,
-					adminUsers: 5,
-					galleryItems: 42,
-				};
-
-				setStats(data);
-			} catch (err: any) {
-				setError('Ошибка загрузки данных');
-				console.error(err);
-			} finally {
-				setLoading(false);
+		try {
+			const user = auth.currentUser;
+			if (!user) {
+				throw new Error('Not authenticated');
 			}
-		};
 
-		fetchData();
-	}, []);
+			const token = await user.getIdToken();
 
-	if (loading) return <div>Загрузка...</div>;
+			const res = await axios.get('http://localhost:5000/api/admin/stats', {
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			});
+
+			setStats(res.data);
+		} catch (err: any) {
+			console.error('Ошибка запроса:', err);
+			setError('Не удалось загрузить статистику');
+		} finally {
+			setLoading(false);
+		}
+	};
+
+	if (loading) return <CustomLoader />;
 	if (error) return <div>Ошибка: {error}</div>;
 
 	return (
@@ -55,15 +56,20 @@ const Dashboard: React.FC = () => {
 			<ul className={styles.dashboard__list}>
 				<li className={styles.dashboard__item}>
 					<FaUserLarge className={styles.dashboard__icon} />
-					<div>Количество пользователей: {stats.totalUsers}</div>
+					<div>
+						Количество пользователей: {stats.totalUsers ? stats.totalUsers : ''}
+					</div>
 				</li>
 				<li className={styles.dashboard__item}>
-					<FaUserTie className={styles.dashboard__icon} />
-					<div>Количество администраторов: {stats.adminUsers}</div>
+					<FaInfo className={styles.dashboard__icon} />
+					<CustomButton text='Load information' onClick={fetchStats} />
 				</li>
 				<li className={styles.dashboard__item}>
 					<FaImage className={styles.dashboard__icon} />
-					<div>Количество изображений: {stats.galleryItems}</div>
+					<div>
+						Количество изображений:
+						{stats.galleryItems ? stats.galleryItems : ''}
+					</div>
 				</li>
 			</ul>
 		</section>

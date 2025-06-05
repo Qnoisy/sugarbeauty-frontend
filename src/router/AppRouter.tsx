@@ -1,10 +1,10 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import UpdateWriteImage from '../components/imagebase/UpdateWirteImage';
 import { CustomLoader } from '../components/UI/CustomLoader';
 import { useAppSelector } from '../hooks/redux';
 import AdminPanel from '../pages/AdminPanel/AdminPanel';
-import AdminRoute from '../pages/admins/AdminRoute';
+import AdminRoute from '../pages/AdminPanel/AdminRoute';
+import UpdateWriteImage from '../pages/AdminPanel/imagebase/UpdateWriteImage/UpdateWriteImage';
 import { privateRoutes, publicRoutes, sharedRoutes } from './Routes';
 
 const AppRouter: React.FC = () => {

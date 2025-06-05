@@ -77,6 +77,7 @@ export const Profile: React.FC = () => {
 							<CustomButton onClick={handleLogout} text='Wyloguj' />
 							<CustomButton onClick={resetPassword} text='Reset Password' />
 							<CustomButton onClick={removeAccount} text='Delete Account' />
+							<CustomButton onClick={() => navigate('/course')} text='Course' />
 						</div>
 					</section>
 				</header>

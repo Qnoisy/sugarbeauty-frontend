@@ -1,9 +1,10 @@
-@use '../../../common/mixins' as *;
+@use '../../../common/mixins';
 
 .inputWrapper {
-	@include flex-gap(0rem, column);
-	width: 100%;
 	margin-bottom: 0.75rem;
+	width: 100%;
+	@include mixins.flex-gap(0rem, column);
+
 	@media (min-width: 575.98px) {
 		margin-bottom: 1rem;
 	}
@@ -15,9 +16,10 @@
 }
 
 .customInput {
-	@include button-style;
 	margin-bottom: 0.5rem;
-	&.error {
-		border-color: #830000;
-	}
+	@include mixins.button-style;
+}
+
+.customInput.error {
+	border-color: #830000;
 }

@@ -1,19 +1,23 @@
-@use '../../common/mixins' as *;
+@use '../../common/mixins';
+
 .google__sign {
-	@include button-style;
-	@include flex-center;
-	border-radius: 2rem;
-	background-color: transparent;
-	gap: 1rem;
-	font-size: 1.125rem;
 	margin-bottom: 0.75rem;
+	border-radius: 2rem;
+	font-size: 1.125rem;
+	background-color: transparent;
+	@include mixins.flex-center;
+	gap: 1rem;
+	@include mixins.button-style;
+
 	@media (min-width: 575.98px) {
 		margin-bottom: 1rem;
 	}
+
 	&:hover {
-		@include text-color(--button-text-color-hover, 0.3s);
+		@include mixins.text-color(--button-text-color-hover, 0.3s);
 		background-color: var(--button-background-color-hover);
 	}
+
 	.google__img {
 		font-size: 1.5rem;
 	}

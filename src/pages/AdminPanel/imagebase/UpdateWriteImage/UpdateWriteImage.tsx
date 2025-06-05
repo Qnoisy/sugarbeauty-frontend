@@ -10,8 +10,9 @@ import { Form, Formik, type FormikHelpers } from 'formik';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { app } from '../../firebase/firebase';
-import CustomFileInput from '../UI/CustomFileInput/CustomFileInput';
+import CustomFileInput from '../../../../components/UI/CustomFileInput/CustomFileInput';
+import { app } from '../../../../firebase/firebase';
+
 const convertUrlToPath = (url: string): string | null => {
 	const match = url.match(/\/o\/(.+)\?alt=media/);
 	return match ? decodeURIComponent(match[1]) : null;

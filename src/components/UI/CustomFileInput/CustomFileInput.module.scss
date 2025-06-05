@@ -1,0 +1,30 @@
+@use '../../../common/mixins';
+
+.customFile {
+	margin-bottom: 0.75rem;
+	width: 100%;
+	@include mixins.flex-gap(0rem, column);
+
+	@media (min-width: 575.98px) {
+		margin-bottom: 1rem;
+	}
+}
+
+.customFile__label {
+	max-width: 18%;
+	font-size: 1rem;
+	@include mixins.flex-center;
+	gap: 0.5rem;
+	@include mixins.button-style;
+}
+.customFile__icon {
+	font-size: 2rem;
+}
+
+.customFile__input {
+	display: none;
+}
+
+.customFile__error {
+	border-color: #830000;
+}

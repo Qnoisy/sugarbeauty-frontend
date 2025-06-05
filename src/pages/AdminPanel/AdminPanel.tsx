@@ -1,20 +1,15 @@
 import React from 'react';
 import FormContainer from '../../components/FormContainer/FormContainer';
-import useAdminCheck from '../../hooks/useAdminCheck';
 import Dashboard from './Dashboard/Dashboard';
-import UserManagement from './UserManagement/UserManagement';
+import UpdateImage from './imagebase/UpdateImage/UpdateImage';
+import WriteImage from './imagebase/WriteImage/WriteImage';
 
 const AdminPanel: React.FC = () => {
-	const isAdmin = useAdminCheck();
-
-	if (!isAdmin) {
-		return <p>Access denied. Admins only.</p>;
-	}
-
 	return (
 		<FormContainer title='Admin Panel'>
 			<Dashboard />
-			<UserManagement />
+			<WriteImage />
+			<UpdateImage />
 		</FormContainer>
 	);
 };

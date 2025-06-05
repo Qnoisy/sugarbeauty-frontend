@@ -1,5 +1,6 @@
 import { useField } from 'formik';
-
+import { FaFileAlt } from 'react-icons/fa';
+import styles from './CustomFileInput.module.scss';
 interface CustomFileInputProps {
 	label: string;
 	name: string;
@@ -20,11 +21,20 @@ const CustomFileInput: React.FC<CustomFileInputProps> = ({
 	};
 
 	return (
-		<div>
-			<label>{label}</label>
-			<input type='file' accept='image/*' onChange={handleChange} />
+		<div className={styles.customFile}>
+			<label htmlFor='imageFile' className={styles.customFile__label}>
+				<FaFileAlt className={styles.customFile__icon} />
+				<span>{label}</span>
+			</label>
+			<input
+				id='imageFile'
+				type='file'
+				className={styles.customFile__input}
+				accept='image/*'
+				onChange={handleChange}
+			/>
 			{meta.touched && meta.error ? (
-				<span style={{ color: 'red' }}>{meta.error}</span>
+				<span className={styles.customFile__error}>{meta.error}</span>
 			) : null}
 		</div>
 	);

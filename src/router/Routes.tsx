@@ -1,11 +1,12 @@
 import type { ReactElement } from 'react';
-import ReadImage from '../components/imagebase/ReadImage';
+
 import BuyButton from '../pages/BuyButton/BuyButton';
 import CancelPay from '../pages/CancelPay/CancelPay';
 import CheckCourseAccess from '../pages/CheckCourseAccess/CheckCourseAccess';
 import { Course } from '../pages/Course';
 import { Profile } from '../pages/Profile';
 
+import ReadImage from '../pages/AdminPanel/imagebase/ReadImage/ReadImage';
 import ResetPassword from '../pages/ResetPassword/ResetPassword';
 import SignIn from '../pages/SignIn/SignIn';
 import SignUp from '../pages/SignUp/SignUp';
