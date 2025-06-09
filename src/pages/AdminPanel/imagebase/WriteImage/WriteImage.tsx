@@ -71,7 +71,7 @@ const WriteImage: React.FC = () => {
 						<strong>Upload Images</strong>
 					</h2>
 					<CustomFileInput
-						label='Upload Image'
+						label='Kliknij i wybierz zdjęcie'
 						name='imageFile'
 						setFieldValue={setFieldValue}
 					/>
@@ -79,6 +79,7 @@ const WriteImage: React.FC = () => {
 						text={isSubmitting ? 'Uploading...' : 'Upload'}
 						type='submit'
 						disabled={isSubmitting}
+						className={styles.writeImage__btn}
 					/>
 				</Form>
 			)}

@@ -1,8 +1,7 @@
-import { get, getDatabase, ref, remove } from 'firebase/database';
-import { deleteObject, getStorage, ref as storageRef } from 'firebase/storage';
+import { get, getDatabase, ref } from 'firebase/database';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import ListImages from '../../../../components/ListImages/ListImages';
 import { CustomButton } from '../../../../components/UI/CustomButton';
 import { app } from '../../../../firebase/firebase';
 import type { InitialImageInterface } from '../WriteImage/WriteImage';
@@ -10,7 +9,6 @@ import styles from './UpdateImage.module.scss';
 
 const UpdateImage: React.FC = () => {
 	const [imagesArray, setImagesArray] = useState<InitialImageInterface[]>([]);
-	const navigate = useNavigate();
 
 	const fetchData = async () => {
 		const db = getDatabase(app);
@@ -36,51 +34,13 @@ const UpdateImage: React.FC = () => {
 		}
 	};
 
-	const deleteImage = async (
-		imageId: string,
-		imageUrl?: string
-	): Promise<void> => {
-		if (!imageId) return;
-
-		const db = getDatabase(app);
-		const storage = getStorage(app);
-		const dbRef = ref(db, `list/images/${imageId}`);
-
-		try {
-			if (imageUrl) {
-				const imageRef = storageRef(storage, imageUrl);
-				await deleteObject(imageRef);
-			}
-			await remove(dbRef);
-			setImagesArray(prev => prev.filter(image => image.imageId !== imageId));
-			toast.success('Image deleted successfully');
-		} catch (err: any) {
-			console.error('Error deleting image:', err);
-			toast.error(err.message);
-		}
-	};
-
 	return (
 		<div className={styles.updateImage}>
 			<h2 className={styles.updateImage__title}>
 				<strong>Upload Images</strong>
 			</h2>
+			<ListImages imagesArray={imagesArray} setImagesArray={setImagesArray} />
 			<CustomButton onClick={fetchData} text={'Load Images'} />
-			<ul>
-				{imagesArray.map(image => (
-					<li key={image.imageId}>
-						<img src={image.imageUrl} alt='Uploaded' width='150' />
-						<CustomButton
-							onClick={() => navigate(`/admin/update-image/${image.imageId}`)}
-							text='Replace'
-						/>
-						<CustomButton
-							onClick={() => deleteImage(image.imageId!, image.imageUrl)}
-							text={'Delete'}
-						/>
-					</li>
-				))}
-			</ul>
 		</div>
 	);
 };

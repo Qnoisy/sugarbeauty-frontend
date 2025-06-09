@@ -71,7 +71,7 @@
 	& {
 		@include border;
 		background-color: var(--button-background-color);
-		padding: 0.75rem;
+		padding: 1rem;
 		font-size: 1rem;
 		transition: background-color 0.3s ease, color 0.3s ease;
 		color: var(--button-text-color);

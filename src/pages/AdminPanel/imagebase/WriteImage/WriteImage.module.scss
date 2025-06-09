@@ -2,7 +2,7 @@
 .writeImage {
 	@include mixins.background-base;
 	border-radius: 2rem;
-	padding: 1.5rem;
+	padding: 2rem;
 	margin-bottom: 0.75rem;
 	@media (min-width: 767.98px) {
 		margin-bottom: 2rem;
@@ -14,5 +14,8 @@
 		font-size: 2rem;
 		text-align: center;
 		text-transform: uppercase;
+	}
+	&__btn {
+		width: 100%;
 	}
 }
