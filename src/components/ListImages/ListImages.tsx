@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { app } from '../../firebase/firebase';
 import type { InitialImageInterface } from '../../pages/AdminPanel/imagebase/WriteImage';
-import { CustomButton } from '../UI/CustomButton';
+import styles from './ListImages.module.scss';
 
 interface ListImagesProps {
 	imagesArray: InitialImageInterface[];
@@ -43,18 +43,28 @@ const ListImages: React.FC<ListImagesProps> = ({
 	};
 
 	return (
-		<ul>
+		<ul className={styles.listImages}>
 			{imagesArray.map(image => (
-				<li key={image.imageId}>
-					<img src={image.imageUrl} alt='Uploaded' width='150' />
-					<CustomButton
-						onClick={() => navigate(`/admin/update-image/${image.imageId}`)}
-						text='Replace'
+				<li key={image.imageId} className={styles.listImages__li}>
+					<img
+						src={image.imageUrl}
+						alt='Uploaded'
+						className={styles.listImages__image}
 					/>
-					<CustomButton
-						onClick={() => deleteImage(image.imageId!, image.imageUrl)}
-						text={'Delete'}
-					/>
+					<div className={styles.listImages__buttons}>
+						<button
+							onClick={() => navigate(`/admin/update-image/${image.imageId}`)}
+							className={styles.listImages__button}
+						>
+							Replace
+						</button>
+						<button
+							onClick={() => deleteImage(image.imageId!, image.imageUrl)}
+							className={styles.listImages__button}
+						>
+							Delete
+						</button>
+					</div>
 				</li>
 			))}
 		</ul>

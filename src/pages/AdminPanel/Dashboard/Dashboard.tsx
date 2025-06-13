@@ -67,7 +67,7 @@ const Dashboard: React.FC = () => {
 				<li className={styles.dashboard__item}>
 					<FaImage className={styles.dashboard__icon} />
 					<div>
-						Количество изображений:
+						Количество изображений:{' '}
 						{stats.galleryItems ? stats.galleryItems : ''}
 					</div>
 				</li>

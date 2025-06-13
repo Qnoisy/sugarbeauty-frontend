@@ -10,8 +10,11 @@ import { Form, Formik, type FormikHelpers } from 'formik';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import FormContainer from '../../../../components/FormContainer/FormContainer';
+import { CustomButton } from '../../../../components/UI/CustomButton';
 import CustomFileInput from '../../../../components/UI/CustomFileInput/CustomFileInput';
 import { app } from '../../../../firebase/firebase';
+import styles from './UpdateWriteImage.module.scss';
 
 const convertUrlToPath = (url: string): string | null => {
 	const match = url.match(/\/o\/(.+)\?alt=media/);
@@ -103,25 +106,32 @@ const UpdateWriteImage: React.FC = () => {
 	};
 
 	return (
-		<div className='container'>
-			<h2>Update Image</h2>
-			{currentImage && <img src={currentImage} alt='Current' width='150' />}
+		<FormContainer title='Admin Panel'>
 			<Formik
 				initialValues={{ imageFile: null } as { imageFile: File | null }}
 				onSubmit={handlerSubmit}
 			>
 				{({ setFieldValue }) => (
-					<Form>
+					<Form className={styles.updateWriteImage}>
+						{currentImage && (
+							<div className={styles.updateWriteImage__image}>
+								<img src={currentImage} alt='Current' />
+							</div>
+						)}
 						<CustomFileInput
 							label='Select new image'
 							name='imageFile'
 							setFieldValue={setFieldValue}
 						/>
-						<button type='submit'>Update Image</button>
+						<CustomButton
+							className={styles.updateWriteImage__btn}
+							type='submit'
+							text={'Update Image'}
+						/>
 					</Form>
 				)}
 			</Formik>
-		</div>
+		</FormContainer>
 	);
 };
 

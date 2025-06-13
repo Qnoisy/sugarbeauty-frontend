@@ -8,25 +8,18 @@ export const AppInitializer = () => {
 
 	useEffect(() => {
 		dispatch(setLoading(true));
-		console.log('[Firebase] Инициализация onAuthStateChanged');
-
 		const unsubscribe = onAuthStateChanged(getAuth(), async firebaseUser => {
-			console.log('[Firebase] onAuthStateChanged вызван:', firebaseUser);
-
 			if (firebaseUser) {
 				try {
 					const token = await firebaseUser.getIdToken(true);
-					console.log('[Firebase] Получен токен:', token.slice(0, 20) + '...');
-
-					dispatch(
-						setUser({
-							name: firebaseUser.displayName || '',
-							email: firebaseUser.email || '',
-							id: firebaseUser.uid,
-							token,
-							photoURL: firebaseUser.photoURL || null,
-						})
-					);
+					const userData = {
+						name: firebaseUser.displayName || '',
+						email: firebaseUser.email || '',
+						id: firebaseUser.uid,
+						token,
+						photoURL: firebaseUser.photoURL || null,
+					};
+					dispatch(setUser(userData));
 				} catch (err: any) {
 					console.error('[Firebase] Ошибка при получении токена:', err);
 					dispatch(setError('Ошибка при получении токена'));
@@ -39,7 +32,6 @@ export const AppInitializer = () => {
 		});
 
 		return () => {
-			console.log('[Firebase] Отписка от onAuthStateChanged');
 			unsubscribe();
 		};
 	}, [dispatch]);

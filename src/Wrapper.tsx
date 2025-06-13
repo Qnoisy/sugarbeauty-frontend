@@ -11,6 +11,7 @@ import { MainHeader } from './sections/MainHeader';
 const Wrapper: React.FC = () => {
 	const isLoginPage = useMatch('/');
 	const isLoading = useAppSelector(state => state.user.isLoading);
+
 	return (
 		<NavProvider>
 			<div className='wrapper'>

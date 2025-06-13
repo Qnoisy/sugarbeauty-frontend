@@ -1,3 +1,4 @@
+// ✅ WriteImage.tsx (обновлено с createdAt)
 import { getDatabase, push, ref, set } from 'firebase/database';
 import {
 	getDownloadURL,
@@ -17,6 +18,7 @@ export interface InitialImageInterface {
 	imageId?: string;
 	imageUrl?: string;
 	imageFile?: File | null;
+	createdAt?: number;
 }
 
 const initialImageValues: InitialImageInterface = {
@@ -27,7 +29,10 @@ const WriteImage: React.FC = () => {
 	const uploadImage = async (file: File): Promise<string | null> => {
 		try {
 			const storage = getStorage(app);
-			const fileRef = storageRef(storage, `list/images/${file.name}`);
+			const fileRef = storageRef(
+				storage,
+				`list/images/${Date.now()}-${file.name}`
+			);
 			await uploadBytes(fileRef, file);
 			return await getDownloadURL(fileRef);
 		} catch (error) {
@@ -48,11 +53,17 @@ const WriteImage: React.FC = () => {
 				return;
 			}
 
-			const imageUrl = await uploadImage(values.imageFile); // <== ключевой шаг!
+			const imageUrl = await uploadImage(values.imageFile);
 			if (!imageUrl) return;
 
 			const newDocRef = push(ref(db, 'list/images'));
-			await set(newDocRef, { imageId: newDocRef.key, imageUrl }); // <== сюда должна уйти ссылка
+			const createdAt = Date.now();
+
+			await set(newDocRef, {
+				imageId: newDocRef.key,
+				imageUrl,
+				createdAt, // 👈 добавляем для пагинации
+			});
 
 			toast.success('Image uploaded successfully');
 			setFieldValue('imageFile', null);

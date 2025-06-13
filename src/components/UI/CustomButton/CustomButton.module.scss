@@ -22,7 +22,7 @@
 	transform: scale(0.97);
 	box-shadow: 0 0 10px #000000;
 	background-color: #2b2b2b;
-	transition: all 0.1s ease-in-out;
+	transition: all ease-in-out;
 }
 .button:before {
 	content: '';
@@ -35,7 +35,7 @@
 	background-color: rgba(0, 0, 0, 0.05);
 	border-radius: 50%;
 	display: block;
-	transition: all 0.7s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+	transition: all 0.7s cubic-bezier(0.55, 0, 0.1, 1);
 	z-index: -1;
 }
 
@@ -50,7 +50,7 @@
 	background-color: #2b2b2b;
 	border-radius: 50%;
 	display: block;
-	transition: all 0.7s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+	transition: all 0.7s cubic-bezier(0.55, 0, 0.1, 1);
 	z-index: -1;
 }
 

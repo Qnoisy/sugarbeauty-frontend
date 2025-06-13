@@ -1,0 +1,68 @@
+// CustomDropdownSelect.module.scss
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	width: 100%;
+	max-width: 240px;
+	font-family: sans-serif;
+	margin-bottom: 1rem;
+}
+
+.label {
+	margin-bottom: 0.5rem;
+	color: #fff;
+	font-size: 0.95rem;
+}
+
+.selectBox {
+	color: #000000;
+	background-color: #e0e8ff;
+	border-radius: 8px;
+	padding: 0.75rem 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+
+	&:hover {
+		background-color: #c5d4f7;
+	}
+}
+
+.arrow {
+	color: #000000;
+	font-size: 1.2rem;
+	transition: transform 0.3s ease;
+}
+
+.dropdown {
+	color: #000000;
+	position: absolute;
+	top: calc(100% + 0.25rem);
+	left: 0;
+	right: 0;
+	background-color: #e0e8ff;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+	z-index: 10;
+	max-height: 200px;
+	overflow-y: auto;
+}
+
+.option {
+	padding: 0.65rem 1rem;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+
+	&:hover {
+		background-color: #cddcff;
+	}
+}
+
+.activeOption {
+	@extend .option;
+	background-color: #b6cdff;
+	font-weight: bold;
+}

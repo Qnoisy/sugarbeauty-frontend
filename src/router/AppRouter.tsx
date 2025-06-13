@@ -9,7 +9,6 @@ import { privateRoutes, publicRoutes, sharedRoutes } from './Routes';
 
 const AppRouter: React.FC = () => {
 	const { isAuth, isLoading } = useAppSelector(state => state.user);
-	console.log(isAuth);
 
 	if (isLoading) {
 		return <CustomLoader />;

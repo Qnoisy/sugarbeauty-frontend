@@ -1,7 +1,9 @@
 import { loadStripe } from '@stripe/stripe-js';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { CustomButton } from '../../components/UI/CustomButton';
 import { useAppSelector } from '../../hooks/redux';
+import styles from './BuyButton.module.scss';
 
 const stripePromise = loadStripe(
 	import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY! || ''
@@ -84,15 +86,20 @@ const BuyButton = () => {
 	if (loading) return <p>Loading...</p>;
 
 	return (
-		<div>
+		<div className={styles.buyBtn}>
 			{access ? (
-				<div className='bg-green-100 p-4 rounded-md'>
+				<div className={styles.buyBtn__content}>
 					<p>You already own this course.</p>
 				</div>
 			) : (
-				<button onClick={handleBuy} disabled={!user}>
-					Buy Course
-				</button>
+				<div className={styles.buyBtn__content}>
+					<img src='/img/frame1.jpg' alt='' />
+					<CustomButton
+						onClick={handleBuy}
+						disabled={!user}
+						text='Buy Course'
+					/>
+				</div>
 			)}
 			{error && <p style={{ color: 'red' }}>{error}</p>}
 		</div>

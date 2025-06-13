@@ -1,0 +1,34 @@
+@use '../../../../common/mixins';
+.updateWriteImage {
+	@include mixins.background-base;
+	border-radius: 2rem;
+	padding: 2rem;
+	margin-bottom: 0.75rem;
+	@media (min-width: 767.98px) {
+		margin-bottom: 2rem;
+	}
+	&__title {
+		@include mixins.background-base;
+		@include mixins.text-special;
+		margin-bottom: 1.5rem;
+		font-size: 2rem;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	&__image {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		margin-bottom: 2rem;
+		img {
+			width: 200px;
+			height: 150px;
+			border: 1px solid white;
+			border-radius: 1rem;
+			padding: 0.2rem;
+		}
+	}
+	&__btn {
+		width: 100%;
+	}
+}
