@@ -1,9 +1,15 @@
 @use '../../common/mixins';
 .listImages {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(1, 1fr);
 	grid-template-rows: auto;
 	gap: 1rem;
+	@media (min-width: 575.98px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	@media (min-width: 767.98px) {
+		grid-template-columns: repeat(3, 1fr);
+	}
 	&__li {
 		position: relative;
 		z-index: 1;
@@ -52,3 +58,9 @@
 		}
 	}
 }
+// 	@media (min-width: 319.98px) {}
+//   @media (min-width: 399.98px) {}
+//   @media (min-width: 575.98px) {}
+//   @media (min-width: 767.98px) {}
+//   @media (min-width: 991.98px) {}
+//   @media (min-width: 1199.98px) {}

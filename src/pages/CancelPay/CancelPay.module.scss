@@ -1,0 +1,14 @@
+@use '../../common/mixins';
+.cancel {
+	@include mixins.background-base;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	align-items: center;
+	border-radius: 2rem;
+	padding: 2rem;
+	margin-bottom: 0.75rem;
+	@media (min-width: 767.98px) {
+		margin-bottom: 2rem;
+	}
+}
