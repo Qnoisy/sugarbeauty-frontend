@@ -6,6 +6,7 @@ import CheckCourseAccess from '../pages/CheckCourseAccess/CheckCourseAccess';
 import { Course } from '../pages/Course';
 import { Profile } from '../pages/Profile';
 
+import AboutMe from '../pages/AboutMe/AboutMe';
 import ReadImage from '../pages/AdminPanel/imagebase/ReadImage/ReadImage';
 import ResetPassword from '../pages/ResetPassword/ResetPassword';
 import SignIn from '../pages/SignIn/SignIn';
@@ -25,6 +26,7 @@ export const sharedRoutes: RouteConfig[] = [
 	{ path: '/success', component: <SuccessPay /> },
 	{ path: '/cancel', component: <CancelPay /> },
 	{ path: '/readImage', component: <ReadImage /> },
+	{ path: '/aboutMe', component: <AboutMe /> },
 ];
 
 export const publicRoutes: RouteConfig[] = [

@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { Container } from '../../../components/Container';
 import { CustomButton } from '../../../components/UI/CustomButton';
 import styles from './BigBlockInfo.module.scss';
@@ -5,6 +6,7 @@ import styles from './BigBlockInfo.module.scss';
 // interface BigBlockInfoProps {}
 
 export const BigBlockInfo = () => {
+	const navigate = useNavigate();
 	return (
 		<div className={styles.bigBlockInfo}>
 			<Container section>
@@ -18,6 +20,7 @@ export const BigBlockInfo = () => {
 							<CustomButton
 								className={styles.bigBlockInfo__btn}
 								text='about me'
+								onClick={() => navigate('/aboutMe')}
 							/>
 						</div>
 					</div>
