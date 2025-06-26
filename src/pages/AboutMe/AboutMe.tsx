@@ -1,14 +1,10 @@
 import { Container } from '../../components/Container';
 import styles from '../AboutMe/AboutMe.module.scss';
+import AboutAside from './AboutAside';
 
 const AboutMe = () => {
 	return (
 		<div className={styles.aboutMe}>
-			<img
-				src='/img/frame1.jpg'
-				alt=''
-				className={styles['aboutMe__img--top']}
-			/>
 			<Container section className={styles.aboutMe__container}>
 				<div className={styles.aboutMe__content}>
 					<h2 className={styles.aboutMe__title}>
@@ -25,8 +21,14 @@ const AboutMe = () => {
 						alt=''
 						className={styles['aboutMe__img--bot']}
 					/>
+					<img
+						src='/img/frame1.jpg'
+						alt=''
+						className={styles['aboutMe__img--top']}
+					/>
 				</div>
 			</Container>
+			<AboutAside />
 		</div>
 	);
 };
