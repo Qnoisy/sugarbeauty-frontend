@@ -44,6 +44,7 @@ export const GallerySection: React.FC = () => {
 		setIsEnd,
 		Number(itemsPerPage)
 	);
+	console.log(imagesArray);
 
 	useEffect(() => {
 		if (inView && !isEnd) {
@@ -56,13 +57,9 @@ export const GallerySection: React.FC = () => {
 				<strong>Our Gallery</strong>
 			</h2>
 			<div className={styles.gallerySection__grid}>
-				{imagesArray.map((slide, index) => (
-					<div key={index} className={styles.gallerySection__slide}>
-						<img
-							src={slide.imageUrl}
-							alt={`Gallery Slide ${index + 1}`}
-							loading='lazy'
-						/>
+				{imagesArray.map(slide => (
+					<div key={slide.imageId} className={styles.gallerySection__slide}>
+						<img src={slide.imageUrl} alt='Gallery Slide' loading='lazy' />
 					</div>
 				))}
 			</div>

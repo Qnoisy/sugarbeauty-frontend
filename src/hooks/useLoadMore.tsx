@@ -21,7 +21,7 @@ const useLoadMore = (
 	itemsPerPage: number
 ) => {
 	const loadMore = useCallback(async () => {
-		if (lastTimestamp === -1) return; // остановка если достигнут конец списка
+		if (lastTimestamp === -1) return;
 
 		const db = getDatabase(app);
 		const baseRef = ref(db, 'list/images');
@@ -30,7 +30,7 @@ const useLoadMore = (
 			const q = query(
 				baseRef,
 				orderByChild('createdAt'),
-				...(lastTimestamp ? [startAfter(lastTimestamp)] : []),
+				...(lastTimestamp !== null ? [startAfter(lastTimestamp)] : []),
 				limitToFirst(itemsPerPage)
 			);
 
@@ -42,14 +42,27 @@ const useLoadMore = (
 					imageId: id,
 				}));
 
-				setImagesArray(prev => [...prev, ...rawData]);
+				// Убираем дубликаты
+				const uniqueNew = rawData.filter(
+					item =>
+						!imagesArray.some(existing => existing.imageId === item.imageId)
+				);
 
-				const last = rawData[rawData.length - 1];
-				setLastTimestamp(last.createdAt!);
-
-				if (rawData.length < itemsPerPage) {
+				// Нет новых — значит достигли конца
+				if (uniqueNew.length === 0) {
 					setIsEnd(true);
-					setLastTimestamp(-1); // использовать -1 как признак конца
+					setLastTimestamp(-1);
+					return;
+				}
+
+				setImagesArray(prev => [...prev, ...uniqueNew]);
+
+				const lastItem = uniqueNew[uniqueNew.length - 1];
+				setLastTimestamp(lastItem.createdAt ?? -1);
+
+				if (uniqueNew.length < itemsPerPage) {
+					setIsEnd(true);
+					setLastTimestamp(-1);
 				}
 			} else {
 				setIsEnd(true);
@@ -59,7 +72,14 @@ const useLoadMore = (
 			console.error('loadMore error:', err);
 			toast.error(`loadMore error: ${err.message}`);
 		}
-	}, [lastTimestamp, imagesArray, setImagesArray, setLastTimestamp, setIsEnd]);
+	}, [
+		lastTimestamp,
+		setImagesArray,
+		setLastTimestamp,
+		setIsEnd,
+		itemsPerPage,
+		imagesArray,
+	]);
 
 	return loadMore;
 };

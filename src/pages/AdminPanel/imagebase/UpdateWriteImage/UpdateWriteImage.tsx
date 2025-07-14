@@ -93,7 +93,14 @@ const UpdateWriteImage: React.FC = () => {
 			if (!imageUrl) return;
 
 			// Обновляем запись в БД
-			await set(dbRef, { imageId: id, imageUrl });
+			const snapshot = await get(dbRef);
+			const existingData = snapshot.exists() ? snapshot.val() : {};
+
+			await set(dbRef, {
+				imageId: id,
+				imageUrl,
+				createdAt: existingData.createdAt || Date.now(), // сохраняем или создаём
+			});
 
 			toast.success('Image updated successfully');
 			navigate('/admin');
