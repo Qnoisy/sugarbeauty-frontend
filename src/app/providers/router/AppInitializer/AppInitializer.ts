@@ -4,8 +4,8 @@ import {
 	setError,
 	setLoading,
 	setUser,
-} from '../../../redux/reducers/UserSlice';
-import { useAppDispatch } from '../../hooks/redux';
+} from '../../../../entities/User/model/slice/userSlice';
+import { useAppDispatch } from '../../../../shared/lib/hooks/redux';
 
 export const AppInitializer = () => {
 	const dispatch = useAppDispatch();
@@ -24,7 +24,7 @@ export const AppInitializer = () => {
 						photoURL: firebaseUser.photoURL || null,
 					};
 					dispatch(setUser(userData));
-				} catch (err: any) {
+				} catch (err) {
 					console.error('[Firebase] Ошибка при получении токена:', err);
 					dispatch(setError('Ошибка при получении токена'));
 				}

@@ -1,10 +1,10 @@
 import { updateProfile } from 'firebase/auth';
 import { Form, Formik } from 'formik';
 import React, { useState } from 'react';
+import auth from '../../../../app/config/firebase';
+import { editProfileSchema } from '../../../../app/utils/shema';
 import { CustomButton } from '../../../components/UI/CustomButton';
 import { CustomInput } from '../../../components/UI/CustomInput';
-import auth from '../../../firebase/firebase';
-import { editProfileSchema } from '../../../utils/shema';
 import styles from './EditName.module.scss';
 
 const EditName: React.FC = () => {

@@ -1,19 +1,20 @@
 import type { ReactElement } from 'react';
 
 import BuyButton from '../../../pages/BuyButton/BuyButton';
-import CheckCourseAccess from '../../../pages/CheckCourseAccess/CheckCourseAccess';
 import { Course } from '../../../pages/Course';
-import { Profile } from '../../../pages/sections/Profile';
-import CancelPay from '../pages/CancelPay/CancelPay';
+import CheckCourseAccess from '../../../widgets/CheckCourseAccess/CheckCourseAccess';
 
-import ResetPassword from '../../../pages/ResetPassword/ResetPassword';
-import SignIn from '../../../pages/sections/SignIn/SignIn';
-import SignUp from '../../../pages/sections/SignUp/SignUp';
-import AboutMe from '../pages/AboutMe/AboutMe';
-import ReadImage from '../pages/AdminPanel/imagebase/ReadImage/ReadImage';
-import SuccessPay from '../pages/SuccessPay/SuccessPay';
-import { GallerySection } from '../sections/GallerySection';
-import Main from '../sections/Main/Main';
+import AboutMe from '../../../pages/AboutMe/AboutMe';
+import ReadImage from '../../../pages/AdminPanel/imagebase/ReadImage/ReadImage';
+import CancelPay from '../../../pages/CancelPay/CancelPay';
+import { GallerySection } from '../../../pages/GallerySection';
+import Main from '../../../pages/Main/Main';
+
+import { Profile } from '../../../pages/Profile';
+import SignIn from '../../../pages/SignIn/SignIn';
+import SignUp from '../../../pages/SignUp/SignUp';
+import SuccessPay from '../../../pages/SuccessPay/SuccessPay';
+import ResetPassword from '../../../widgets/ResetPassword/ResetPassword';
 
 export interface RouteConfig {
 	path: string;

@@ -3,16 +3,20 @@ import { doc, setDoc } from 'firebase/firestore';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import FormContainer from '../../components/FormContainer/FormContainer';
+import FormContainer from '../../../components/FormContainer/FormContainer';
+import { GoogleSign } from '../../../widgets/GoogleSign';
 import styles from '../../components/FormContainer/FormContainer.module.scss';
-import { GoogleSign } from '../../components/GoogleSign';
 import { CustomButton } from '../../components/UI/CustomButton';
 import { CustomInput } from '../../components/UI/CustomInput';
 
-import auth, { db } from '../../firebase/firebase';
+import auth, { db } from '../../../app/config/firebase';
+import {
+	setError,
+	setLoading,
+	setUser,
+} from '../../../app/redux/reducers/UserSlice';
+import { initialValuesSignUp, SignUpSchema } from '../../../app/utils/shema';
 import { useAppDispatch } from '../../hooks/redux';
-import { setError, setLoading, setUser } from '../../redux/reducers/UserSlice';
-import { initialValuesSignUp, SignUpSchema } from '../../utils/shema';
 
 const SignUp: React.FC = () => {
 	const navigate = useNavigate();

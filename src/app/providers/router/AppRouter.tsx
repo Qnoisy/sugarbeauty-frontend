@@ -1,17 +1,19 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import AdminRoute from '../../../pages/AdminPanel/AdminRoute';
+
 import UpdateWriteImage from '../../../pages/AdminPanel/imagebase/UpdateWriteImage/UpdateWriteImage';
-import { CustomLoader } from '../components/UI/CustomLoader';
-import { useAppSelector } from '../hooks/redux';
-import AdminPanel from '../pages/AdminPanel/AdminPanel';
+
+import AdminPanel from '../../../pages/AdminPanel/AdminPanel';
+import AdminRoute from '../../../pages/AdminPanel/AdminRoute';
+import { useAppSelector } from '../../../shared/lib/hooks/redux';
+import { Loader } from '../../../shared/ui/Loader/Loader';
 import { privateRoutes, publicRoutes, sharedRoutes } from './Routes';
 
 const AppRouter: React.FC = () => {
 	const { isAuth, isLoading } = useAppSelector(state => state.user);
 
 	if (isLoading) {
-		return <CustomLoader />;
+		return <Loader />;
 	}
 
 	return (

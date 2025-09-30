@@ -1,0 +1,22 @@
+html[data-theme='light'] {
+	--button-text-color: #001317;
+	--button-text-color-hover: #cfdef3;
+	--button-background-color: #cfdef3;
+	--button-background-color-hover: #001317;
+	--button-border-color: #001317;
+	--background-color: #cfdef3;
+	--background-color-second: #001317;
+	--text-color: #001317;
+	--text-color-hover: #cfdef3;
+	--text-color-second: #cfdef3;
+	--text-color-second-hover: #001317;
+	--text-color-special: #009087;
+	--text-color-special-hover: #ffdaaa;
+	--text-color-universal: #ffffff;
+	--border-color: #001317;
+	--gradient-background-top: linear-gradient(to right, #000a0c, #001317);
+	--gradient-background-bottom: linear-gradient(to right, #dee9ff, #cfdef3);
+
+	--text-color-burger: #cfdef3;
+	--nav-color: #cfdef3;
+}

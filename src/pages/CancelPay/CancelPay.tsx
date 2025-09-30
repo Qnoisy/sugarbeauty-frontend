@@ -1,5 +1,5 @@
 import type React from 'react';
-import FormContainer from '../../components/FormContainer/FormContainer';
+import FormContainer from '../../shared/ui/FormContainer/FormContainer';
 import styles from './CancelPay.module.scss';
 
 const CancelPay: React.FC = () => {

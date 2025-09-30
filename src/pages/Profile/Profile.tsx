@@ -3,11 +3,11 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import FormContainer from '../../components/FormContainer/FormContainer';
+import auth from '../../../app/config/firebase';
+import { removeUser } from '../../../app/redux/reducers/UserSlice';
+import FormContainer from '../../../components/FormContainer/FormContainer';
 import { CustomButton } from '../../components/UI/CustomButton';
-import auth from '../../firebase/firebase';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { removeUser } from '../../redux/reducers/UserSlice';
 import EditName from './EditName/EditName';
 import styles from './Profile.module.scss';
 
